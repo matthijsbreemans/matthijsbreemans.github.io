@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Webstack]]></title>
+  <subtitle><![CDATA[Blog over vanalles wat met software te maken heeft]]></subtitle>
+  <link href="//feed/index.html" rel="self"/>
+  <link href="https://webstack.nl/"/>
+  <updated>2014-11-24T10:17:15.417Z</updated>
+  <id>https://webstack.nl/</id>
+  
+  <author>
+    <name><![CDATA[Matthijs B.]]></name>
+    
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Nieuwe features in C# 6.0]]></title>
+    <link href="https://webstack.nl/2014/11/nieuwe-features-in-c-6-0/"/>
+    <id>https://webstack.nl/2014/11/nieuwe-features-in-c-6-0/</id>
+    <published>2014-11-21T21:31:04.000Z</published>
+    <updated>2014-11-24T08:57:31.000Z</updated>
+    <content type="html"><![CDATA[<p>Met de release van <a href="http://www.asp.net/vnext" target="_blank" rel="external">ASP.NET vNext</a> heeft Microsoft ook een nieuwe versie van de <a href="http://en.wikipedia.org/wiki/C_Sharp_(programming_language" target="_blank" rel="external">C#</a>) programmeer taal aangekondigd. Inmiddels zijn we bij versie 6.0 van C# aangekomen (niet verwarren met de versienummers van het .NET framework). In vergelijking met eerdere versies bevat versie 6.0 maar weinig echte grote verbeteringen en Microsoft heeft vooral veel tijd in vNext en Roslyn gestoken. Verwacht dus geen nieuwe features die net zoveel impact hebben als Linq of Generics maar veelal verfijning van de taal C#.</p>
+<p>Wat is er dan wel veranderd?</p>
+<p><a id="more"></a><br><em>Auto-property initializers</em> bestaan nu ook in C# en zijn vergelijkbaar met het automatisch zetten van velden</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> Product {</div><div class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ProductNaam {<span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="string">"Motorolie"</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>Dit werkt nu ook voor <em>Getter-only auto-properties</em></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> Product {</div><div class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ProductNaam {<span class="keyword">get</span>;} = <span class="string">"Motorolie"</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p><em>nameof Expression</em> is een nieuwe string functie welke de mogelijkheid geeft om bijvoorbeeld de naam van een Property kan retourneren. Uiteraard kan je dit ook handmatig zetten maar met de nameof expression kan je dit met de compiler afdwingen wat het refactoren weer makkelijk maakt.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Console<span class="class">.WrileLine</span>(<span class="function">nameof</span>(Product<span class="class">.ProductNaam</span>));  <span class="comment">//output: ProductNaam</span></div></pre></td></tr></table></figure>
+
+<p><em>String interpolation</em> maakt String.Format overbodig waar je voorheen</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">String</span>.<span class="keyword">Format</span>(<span class="string">"Hallo {0}, het is vandaag {1}"</span>, naam, DateTime.Now.<span class="keyword">Date</span>);</div></pre></td></tr></table></figure>
+
+<p>moest gebruiken kan je het tegenwoordig af met</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tekst = <span class="string">"Hallo \{naam}, het is vandaag \{DateTime.Now.Date}"</span>;</div></pre></td></tr></table></figure>
+
+<p><em>Null-conditional operators</em> maakt code overzichtelijker door het eindeloze null-checken te vereenvoudigen. Waar je voorheen</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>? nummer = product != <span class="keyword">null</span> ? product.nummer : (<span class="keyword">int</span>?)<span class="keyword">null</span>;</div></pre></td></tr></table></figure>
+
+<p>moest gebruiken om geen Nullpointer exeption te krijgen kan je dit nu oplossen door <em>.?</em> te gebruiken</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">int? nummer </span>=<span class="string"> product.?nummer;</span></div></pre></td></tr></table></figure>
+
+<p><em>Index initializers</em> zijn uitgebreid zodat je nu niet alleen Member variabelen kan initialiseren maar ook de indices van het nieuw aangemaakte object.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> producten = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">int</span>, Product&gt; {</div><div class="line">[<span class="number">2</span>] = <span class="keyword">new</span> Product(),</div><div class="line">[<span class="number">11</span>] = Product()</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+
+<p>Nog een leuke feature is <em>Expression-bodied function members</em>, deze maken het mogelijk om methods, properties en andere functionmembers in een expressie te stoppen in plaats van een statement block</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Optellen</span>(<span class="keyword">int</span> i, <span class="keyword">int</span> j) =&gt; i + j;</div></pre></td></tr></table></figure>
+
+<p>Hiermee kan je ook andere methodes aanroepen, bijvoorbeeld</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Print</span>(<span class="keyword">string</span> bericht) =&gt; Console.WriteLine(bericht);</div></pre></td></tr></table></figure>
+
+<p>Naast <em>paramterless constructors</em> in een class kan je deze nu ook gebruiken in een struct. Verder kan nu ook met <em>using static</em> methodes aanroepen zonder de hele class op te geven. Ook zijn <em>Exception filters</em> en <em>await in catch en finally blocks</em> toegevoegd aan C# 6.0</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Met de release van <a href="http://www.asp.net/vnext" target="_blank" rel="external">ASP.NET vNext</a> heeft Microsoft ook een nieuwe versie van de <a href="http://en.wikipedia.org/wiki/C_Sharp_(programming_language" target="_blank" rel="external">C#</a>) programmeer taal aangekondigd. Inmiddels zijn we bij versie 6.0 van C# aangekomen (niet verwarren met de versienummers van het .NET framework). In vergelijking met eerdere versies bevat versie 6.0 maar weinig echte grote verbeteringen en Microsoft heeft vooral veel tijd in vNext en Roslyn gestoken. Verwacht dus geen nieuwe features die net zoveel impact hebben als Linq of Generics maar veelal verfijning van de taal C#.</p>
+<p>Wat is er dan wel veranderd?</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/tag/microsoft/"/>
+    
+      <category term="vNext" scheme="https://webstack.nl/tag/vnext/"/>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="ASP.NET vNext" scheme="https://webstack.nl/category/asp-net-vnext/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/asp-net-vnext/coding/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/category/asp-net-vnext/coding/microsoft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Open source .NET!]]></title>
+    <link href="https://webstack.nl/2014/11/open-source-net/"/>
+    <id>https://webstack.nl/2014/11/open-source-net/</id>
+    <published>2014-11-12T18:04:26.000Z</published>
+    <updated>2014-11-24T10:07:52.000Z</updated>
+    <content type="html"><![CDATA[<p>Na ASP.NET, EntityFramework, F# &amp; Roslyn heeft <a href="https://microsoft.com" target="_blank" rel="external">Microsoft</a> nu ook de .NET Core open source gemaakt. Scott Guthrie deed deze aankonding tijden het Visual Studio Connect(); evemement. </p>
+<p>Maar wat is de .NET Core? De .NET Core is een modulaire softwarestack welke de basis gaat vormen voor alle toekomstige .NET platformen waar ASP.NET 5 en .NET Native de eerste zullen zijn.</p>
+<p><img src="/2014/11/open-source-net/dotnetcore.png" alt=""></p>
+<p>Microsoft heeft besloten om de gehele .NET Core broncode op Github te plaatsen, een logische keuze omdat onder andere ASP.NET al een tijdje op Github te vinden is. De Git repository van de &gt;NET Core is <a href="https://github.com/dotnet/corefx" target="_blank" rel="external">hier op github te vinden</a></p>
+<p>Immo Landwerth heeft op MSDN een uitgebreide <a href="https://github.com/dotnet/corefx" target="_blank" rel="external">blog geschreven</a> over het open source maken van .NET</p>
+<p><a id="more"></a><br>Bekijk hier de aankondiging van Scott Guthrie tijdens Visual Studio Connect();</p>
+<iframe width="640" height="360" src="https://www.youtube.com/watch?feature=player_detailpage&v=9X4OwK0mGWo#t=4524" frameborder="0" allowfullscreen></iframe>]]></content>
+    <summary type="html">
+    <![CDATA[<p>Na ASP.NET, EntityFramework, F# &amp; Roslyn heeft <a href="https://microsoft.com" target="_blank" rel="external">Microsoft</a> nu ook de .NET Core open source gemaakt. Scott Guthrie deed deze aankonding tijden het Visual Studio Connect(); evemement. </p>
+<p>Maar wat is de .NET Core? De .NET Core is een modulaire softwarestack welke de basis gaat vormen voor alle toekomstige .NET platformen waar ASP.NET 5 en .NET Native de eerste zullen zijn.</p>
+<p><img src="/2014/11/open-source-net/dotnetcore.png" alt=""></p>
+<p>Microsoft heeft besloten om de gehele .NET Core broncode op Github te plaatsen, een logische keuze omdat onder andere ASP.NET al een tijdje op Github te vinden is. De Git repository van de &gt;NET Core is <a href="https://github.com/dotnet/corefx" target="_blank" rel="external">hier op github te vinden</a></p>
+<p>Immo Landwerth heeft op MSDN een uitgebreide <a href="https://github.com/dotnet/corefx" target="_blank" rel="external">blog geschreven</a> over het open source maken van .NET</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="Github" scheme="https://webstack.nl/tag/github/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/tag/microsoft/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Visual Studio Community 2013, gratis en volledig]]></title>
+    <link href="https://webstack.nl/2014/11/visual-studio-community-2013-gratis-en-volledig/"/>
+    <id>https://webstack.nl/2014/11/visual-studio-community-2013-gratis-en-volledig/</id>
+    <published>2014-11-12T17:01:37.000Z</published>
+    <updated>2014-11-24T10:08:16.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="https://microsoft.com" target="_blank" rel="external">Microsoft</a> heeft vandaag op hun live te streamen event <a href="http://www.visualstudio.com/en-us/connect-event-live-vs.aspx" target="_blank" rel="external">Visual Studio Connect();</a> <a href="http://www.visualstudio.com/news/vs2013-community-vs" target="_blank" rel="external">aangekondigd</a> dat Visual Studio Community 2013 per direct <a href="http://www.visualstudio.com/nl-nl/products/free-developer-offers-vs" target="_blank" rel="external">gratis te downloaden is</a>. Nu had Microsoft al gelimiteerde versies van Visual Studio uitgebracht onder de Express tak maar deze waren ieder erg gelimiteerd in functionaliteit. </p>
+<p>Het grote verschil met de Express versie is Extensibility, dat betekent dat ontwikkelaars geen aparte versie nodig hebben voor iedere taal, mogelikheid tot het installeren van Extensions en Addon’s, volledige Git workflow ondersteuning, refactoring, code analysis en nog meer wat eerst niet kon met een Express versie. De enige restrictie die Microsoft heeft op de Community versie is dat deze niet voor enterprise applicaties gebruikt mag worden. Onder andere JetBrains heeft al <a href="https://twitter.com/resharper/status/532574945776513024" target="_blank" rel="external">aangekondigd</a> dat ReSharper 8 &amp; 9 volledig met Visual Studio Community 2013 zal werken.</p>
+<p><a id="more"></a><br>Bekijk hier de aankondiging van Scott Hanselman</p>
+<iframe src="//channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/040/player" width="960" height="540" allowfullscreen frameborder="0"></iframe>]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="https://microsoft.com" target="_blank" rel="external">Microsoft</a> heeft vandaag op hun live te streamen event <a href="http://www.visualstudio.com/en-us/connect-event-live-vs.aspx" target="_blank" rel="external">Visual Studio Connect();</a> <a href="http://www.visualstudio.com/news/vs2013-community-vs" target="_blank" rel="external">aangekondigd</a> dat Visual Studio Community 2013 per direct <a href="http://www.visualstudio.com/nl-nl/products/free-developer-offers-vs" target="_blank" rel="external">gratis te downloaden is</a>. Nu had Microsoft al gelimiteerde versies van Visual Studio uitgebracht onder de Express tak maar deze waren ieder erg gelimiteerd in functionaliteit. </p>
+<p>Het grote verschil met de Express versie is Extensibility, dat betekent dat ontwikkelaars geen aparte versie nodig hebben voor iedere taal, mogelikheid tot het installeren van Extensions en Addon’s, volledige Git workflow ondersteuning, refactoring, code analysis en nog meer wat eerst niet kon met een Express versie. De enige restrictie die Microsoft heeft op de Community versie is dat deze niet voor enterprise applicaties gebruikt mag worden. Onder andere JetBrains heeft al <a href="https://twitter.com/resharper/status/532574945776513024" target="_blank" rel="external">aangekondigd</a> dat ReSharper 8 &amp; 9 volledig met Visual Studio Community 2013 zal werken.</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="ASP.NET" scheme="https://webstack.nl/tag/asp-net/"/>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="Visual Studio" scheme="https://webstack.nl/tag/visual-studio/"/>
+    
+      <category term="Visual Studio Community 2013" scheme="https://webstack.nl/tag/visual-studio-community-2013/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/tag/microsoft/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS Frankfurt, beter voor de Nederlandse markt?]]></title>
+    <link href="https://webstack.nl/2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/"/>
+    <id>https://webstack.nl/2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/</id>
+    <published>2014-10-25T08:05:29.000Z</published>
+    <updated>2014-10-25T12:59:06.000Z</updated>
+    <content type="html"><![CDATA[<p>Afgelopen maandag <a href="https://aws.amazon.com/blogs/aws/aws-region-germany/" target="_blank" rel="external">kondigde</a> Amazon aan dat ze per direct Frankfurt als locatie hebben toegevoegd aan hun AWS infrastructuur. Tot voorheen was Ierland de enige PoP van AWS voor Europa en ook voor Afrika was Ierland het dichtst bijzijnde. Goed nieuws voor ons Europeanen dus die nu de keuzen hebben uit twee PoPś. Helemaal voor Nederland zou je denken omdat wij hemelsbreed maar 360km van Frankfurt verwijderd zijn in plaats van de 760km van Dublin (vanaf Amsterdam). Klinkt alsof we allemaal van Dublin naar Frankfurt moeten overstappen dus. Meten is weten en daarom een kleine benchmark welke AWS locatie nu het snelste is voor Nederland.</p>
+<a id="more"></a>
+
+<p>Ik heb voor de test een t2.medium instance in zowel Ierland als Frankfurt opgezet en als test locaties mijn 90/9mbit Ziggo verbinding en een <a href="https://www.digitalocean.com/?refcode=1fbe2ead8d3e" target="_blank" rel="external">DigitalOcean</a> droplet gebruikt. Om de maximale snelheid van mijn DigitalOcean droplet te testen heb ik de LeaseWebś filemirror gebruikt. Overigens heeft zowel Ziggo als DigitalOcean peering met Amazon op de AMSIX. De verbindingen van Ierland en Frankfurt maken beiden gebruik van deze peering.</p>
+<p>Ping tijden:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">|         	| Ierland  	| Frankfurt 	|</span></div><div class="line"><span class="string">|---------	|----------	|-----------	|</span></div><div class="line"><span class="string">| Ziggo   	| 31.672ms 	| 33.036ms  	|</span></div><div class="line"><span class="string">| DO AMS3 	| 21.626ms 	| 18.206ms  	|</span></div></pre></td></tr></table></figure>
+
+<p>Speedtest:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">|</span>         <span class="comment">|</span> <span class="comment">Ierland</span>   <span class="comment">|</span> <span class="comment">Frankfurt</span> <span class="comment">|</span> <span class="comment">LeaseWeb</span> <span class="comment">mirror</span> <span class="comment">|</span></div><div class="line"><span class="comment">|</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">|</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">|</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">|</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">|</span></div><div class="line"><span class="comment">|</span> <span class="comment">Ziggo</span>   <span class="comment">|</span> <span class="comment">9</span><span class="string">.</span><span class="comment">9MB/s</span>   <span class="comment">|</span> <span class="comment">9</span><span class="string">.</span><span class="comment">8MB/s</span>   <span class="comment">|</span> <span class="comment">10</span><span class="string">.</span><span class="comment">1MB/s</span>        <span class="comment">|</span></div><div class="line"><span class="comment">|</span> <span class="comment">DO</span> <span class="comment">AMS3</span> <span class="comment">|</span> <span class="comment">49</span><span class="string">.</span><span class="comment">28MB/s</span> <span class="comment">|</span> <span class="comment">43</span><span class="string">.</span><span class="comment">23MB/s</span> <span class="comment">|</span> <span class="comment">103</span><span class="string">.</span><span class="comment">1MB/s</span>       <span class="comment">|</span></div></pre></td></tr></table></figure>
+
+<p>`<br>Traceroute (hops):</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">|         | Ierland | Frankfurt |</span></div><div class="line"><span class="string">|---------|---------|-----------|</span></div><div class="line"><span class="string">| Ziggo   | 10 hops | 11 hops   |</span></div><div class="line"><span class="string">| DO AMS3 | 10 hops | 11 hops   |</span></div></pre></td></tr></table></figure>
+
+<p>Uit deze snelle benchmark kan je concluderen dat de nieuwe locatie van AWS in Frnankfurt de verwachtingen niet kan waar maken. Waar je zou verwachten dat deze juist sneller is voor Nederland ziet het er uit dat Frankfurt toch langzamer is dan Ierland. Frankfurt zal dus meer een voordeel opleveren voor Oost Europa dan voor Nederland.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Afgelopen maandag <a href="https://aws.amazon.com/blogs/aws/aws-region-germany/" target="_blank" rel="external">kondigde</a> Amazon aan dat ze per direct Frankfurt als locatie hebben toegevoegd aan hun AWS infrastructuur. Tot voorheen was Ierland de enige PoP van AWS voor Europa en ook voor Afrika was Ierland het dichtst bijzijnde. Goed nieuws voor ons Europeanen dus die nu de keuzen hebben uit twee PoPś. Helemaal voor Nederland zou je denken omdat wij hemelsbreed maar 360km van Frankfurt verwijderd zijn in plaats van de 760km van Dublin (vanaf Amsterdam). Klinkt alsof we allemaal van Dublin naar Frankfurt moeten overstappen dus. Meten is weten en daarom een kleine benchmark welke AWS locatie nu het snelste is voor Nederland.</p>
+]]>
+    
+    </summary>
+    
+      <category term="Amazon Web Services" scheme="https://webstack.nl/tag/amazon-web-services/"/>
+    
+      <category term="AWS" scheme="https://webstack.nl/tag/aws/"/>
+    
+      <category term="Cloud" scheme="https://webstack.nl/tag/cloud/"/>
+    
+      <category term="AWS" scheme="https://webstack.nl/category/aws/"/>
+    
+      <category term="Cloud" scheme="https://webstack.nl/category/aws/cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ASP.NET vNext community standup]]></title>
+    <link href="https://webstack.nl/2014/09/asp-net-vnext-community-standup/"/>
+    <id>https://webstack.nl/2014/09/asp-net-vnext-community-standup/</id>
+    <published>2014-09-25T15:54:31.000Z</published>
+    <updated>2014-09-25T19:20:02.000Z</updated>
+    <content type="html"><![CDATA[<p>Het werk aan ASP.NET vNext denderd maar door! Het <a href="https://twitter.com/aspnet" target="_blank" rel="external">ASP.NET team</a> is tegenwoordig erg druk mee gezien de grote veranderingen en de snelle release cycle. Een van de opvallende punten van vNext is dat het opensource beschikbaar is op <a href="https://github.com/Aspnet/Home" target="_blank" rel="external">Github</a>, hier was ook al snel de eerste Alpha te vinden. Door het opensource maken van vNext wil Microsoft de community al in een vroeg stadium betrekken bij dit project. Onder andere <a href="http://www.hanselman.com/" target="_blank" rel="external">Scott Hanselman</a> communiceerd veel naar de community toe. Een van de dingen die hij hier voor doet is de weekelijkse <a href="https://www.youtube.com/playlist?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF" target="_blank" rel="external">ASP.NET vNext Community Standup</a>! Deze online standup is iedere dinsdag om 19:15 (NL tijd) live te bekijken via YouTube </p>
+<p>Zie onderstaande YouTube playlist voor de afgelopen standups<br><a id="more"></a></p>
+<iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/videoseries?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF" frameborder="0" allowfullscreen></iframe>]]></content>
+    <summary type="html">
+    <![CDATA[<p>Het werk aan ASP.NET vNext denderd maar door! Het <a href="https://twitter.com/aspnet" target="_blank" rel="external">ASP.NET team</a> is tegenwoordig erg druk mee gezien de grote veranderingen en de snelle release cycle. Een van de opvallende punten van vNext is dat het opensource beschikbaar is op <a href="https://github.com/Aspnet/Home" target="_blank" rel="external">Github</a>, hier was ook al snel de eerste Alpha te vinden. Door het opensource maken van vNext wil Microsoft de community al in een vroeg stadium betrekken bij dit project. Onder andere <a href="http://www.hanselman.com/" target="_blank" rel="external">Scott Hanselman</a> communiceerd veel naar de community toe. Een van de dingen die hij hier voor doet is de weekelijkse <a href="https://www.youtube.com/playlist?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF" target="_blank" rel="external">ASP.NET vNext Community Standup</a>! Deze online standup is iedere dinsdag om 19:15 (NL tijd) live te bekijken via YouTube </p>
+<p>Zie onderstaande YouTube playlist voor de afgelopen standups<br>]]>
+    
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="ASP.NET" scheme="https://webstack.nl/tag/asp-net/"/>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="vNext" scheme="https://webstack.nl/tag/vnext/"/>
+    
+      <category term="ASP.NET vNext" scheme="https://webstack.nl/category/asp-net-vnext/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/asp-net-vnext/coding/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/category/asp-net-vnext/coding/microsoft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ASP.NET vNext, K KRE KPM KVM, wat is het allemaal?]]></title>
+    <link href="https://webstack.nl/2014/08/asp-net-vnext-k-kre-kpm-kvm-wat-het-allemaal/"/>
+    <id>https://webstack.nl/2014/08/asp-net-vnext-k-kre-kpm-kvm-wat-het-allemaal/</id>
+    <published>2014-08-28T05:14:13.000Z</published>
+    <updated>2014-09-19T13:53:46.000Z</updated>
+    <content type="html"><![CDATA[<p>Nu <a href="https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/" title="ASP.NET vNext, wat is het precies?" target="_blank" rel="external">ASP.NET vNext steeds meer vorm</a> begint te krijgen, zelfs <a href="https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/" title="ASP.NET vNext, wat is het en wat doet het?" target="_blank" rel="external">onder Linux</a>, is er soms wat onduidelijkheid over alle K* applicaties, zie hier een uitleg over welke commando precies wat doet.</p>
+<h3 id="KVM_(K_Version_Manager)">KVM (K Version Manager)</h3>
+<p>Als je net ASP.NET vNext hebt geinstalleerd begin je met kvm. Kvm zorgt ervoor dat er een runtime versie geinstalleerd wordt en hiermee kan je ook de verschillende runtimes (mocht je die hebben) managen. Ook is het mogelijk om naar een andere versie switchen. Zie <a href="https://github.com/aspnet/Home/wiki/version-manager" target="_blank" rel="external">https://github.com/aspnet/Home/wiki/version-manager</a> voor meer info.</p>
+<h3 id="KRE_(K_Runtime_Engine)">KRE (K Runtime Engine)</h3>
+<p>KRE is de bootstrapper voor vNext, deze zorgt er voor dat alles wat je nodig hebt om een vNext applicatie te draaien wordt geladen. Ook van KRE kan je verschillende versie hebben en deze kan je ook met het KRE commando managen.</p>
+<h3 id="KLR_(K_Language_Runtime)">KLR (K Language Runtime)</h3>
+<p>KLR is binnen ASP.NET vNext verantwoordelijk voor het aanroepen van de CLR Native Host als vNext in een self hosted enviroment wordt gedraaid (dus niet in IIS bijvoorbeeld) Zie <a href="https://github.com/aspnet/Home/wiki/KRuntime-structure%20" target="_blank" rel="external">https://github.com/aspnet/Home/wiki/KRuntime-structure</a> voor meer info</p>
+<h3 id="KPM_(K_Package_Manager)">KPM (K Package Manager)</h3>
+<p>KPM is verantwoordelijk voor het restoren en installeren van de Packages uit de NuGet repositories. Alles wat met de packages te maken heeft gebeurd via KPM.Zie <a href="https://github.com/aspnet/Home/wiki/Package-Manager" target="_blank" rel="external">https://github.com/aspnet/Home/wiki/Package-Manager</a> voor meer informatie</p>
+<h3 id="K">K</h3>
+<p>Als je een vNext applicatie wilt draaien gebruik je k run. Voor meer informatie zie <a href="https://github.com/aspnet/Home/wiki/Command-Line" target="_blank" rel="external">https://github.com/aspnet/Home/wiki/Command-Line</a> . Eventueel kan er in het project.json bestand nog andere commando’s worden opgegeven</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Nu <a href="https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/" title="ASP.NET vNext, wat is het precies?" target="_bl]]>
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="ASP.NET" scheme="https://webstack.nl/tag/asp-net/"/>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/tag/microsoft/"/>
+    
+      <category term="vNext" scheme="https://webstack.nl/tag/vnext/"/>
+    
+      <category term="ASP.NET vNext" scheme="https://webstack.nl/category/asp-net-vnext/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/asp-net-vnext/coding/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/category/asp-net-vnext/coding/microsoft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ASP.NET vNext draaien onder Linux / Debian]]></title>
+    <link href="https://webstack.nl/2014/08/asp-net-vnext-draaien-onder-linux-debian/"/>
+    <id>https://webstack.nl/2014/08/asp-net-vnext-draaien-onder-linux-debian/</id>
+    <published>2014-08-26T08:57:54.000Z</published>
+    <updated>2014-09-19T12:52:48.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/" target="_blank" rel="external">Eerder</a> heb ik al een uitleg gegeven over wat ASP.NET vNext precies is. Nu beloofd Microsoft goede cross platform compatibiliteit, met Windows, Linux en OS X en was ik benieuwd hoe goed dit nu eigenlijk werkt op Linux. Ik heb hiervoor een Debian Wheezy installatie gebruikt welke ik heb geupgrade naar Debian Sid, of tewel Debian testing.</p>
+<p><a id="more"></a><br>Commando’s die beginnen met een # dienen uitgevoerd te worden als root of met sudo en commando’s die beginnen met $ dienen als een normale users uitgevoerd te worden</p>
+<p>Upgrade /etc/apt/sources.list naar Sid door alles te vervangen met het volgende:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">deb <span class="keyword">http</span>://<span class="keyword">ftp</span>.nl.debian.org/debian unstable main contrib non-free</div><div class="line">deb-src <span class="keyword">http</span>://<span class="keyword">ftp</span>.nl.debian.org/debian unstable main contrib non-free</div></pre></td></tr></table></figure>
+
+<p>Voer daarna de upgrade uit met:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#apt-<span class="built_in">get</span> <span class="keyword">update</span> &amp;&amp; apt-<span class="built_in">get</span> dist-upgrade</div></pre></td></tr></table></figure>
+
+<p>Installeer wat benodigd heden die we later nodig hebben:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#apt-get install sudo unzip curl autoconf libtool gettext build-essential git</span></div></pre></td></tr></table></figure>
+
+<p>Installeer Mono 3.6.0 vanuit de repository van Xamarin</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">#wget</span> http:<span class="comment">//download.mono-project.com/repo/xamarin.gpg</span></div><div class="line"><span class="variable">#apt</span><span class="attribute">-key</span> add xamarin<span class="built_in">.</span>gpg</div><div class="line"><span class="variable">#echo</span> <span class="string">"deb http://download.mono-project.com/repo/debian wheezy main"</span> <span class="subst">&</span><span class="literal">gt</span>; /etc/apt/sources<span class="built_in">.</span><span class="built_in">list</span><span class="built_in">.</span>d/mono<span class="attribute">-xamarin</span><span class="built_in">.</span><span class="built_in">list</span></div><div class="line"></div><div class="line"><span class="variable">#apt</span><span class="attribute">-get</span> install mono<span class="attribute">-complete</span></div></pre></td></tr></table></figure>
+
+<p>Om ASP.NET vNext te draaien heb je minstens Mono 3.6.1 nodig, echte zit deze nu nog niet in de repository dus moeten we Mono van source compilen. Als je Mono wilt compilen heb je Mono zelf nodig dus daarom hebben we die net eerst geinstalleerd.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#git clone git://github.com/mono/mono.git</span></div><div class="line"><span class="preprocessor">#cd mono</span></div><div class="line"><span class="preprocessor">#./autogen.sh --prefix=/usr/local</span></div><div class="line"><span class="preprocessor">#make</span></div><div class="line"><span class="preprocessor">#make install</span></div></pre></td></tr></table></figure>
+
+<p>Als het goed is dan is nu de laatste versie van Mono geinstallerd, dit kan je controleren door mono -V in te typen</p>
+<p>Standaard worden er geen certificaten ondersteund in Mono, deze dienen we dus te gaan installeren:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">#certmgr</span> <span class="attribute">-ssl</span> <span class="attribute">-m</span> https:<span class="comment">//go.microsoft.com&lt;</span></div><div class="line"><span class="variable">#certmgr</span> <span class="attribute">-ssl</span> <span class="attribute">-m</span> https:<span class="comment">//nugetgallery.blob.core.windows.net</span></div><div class="line"><span class="variable">#certmgr</span> <span class="attribute">-ssl</span> <span class="attribute">-m</span> https:<span class="comment">//nuget.org</span></div><div class="line"><span class="variable">#certmgr</span> <span class="attribute">-ssl</span> <span class="attribute">-m</span> https:<span class="comment">//www.myget.org</span></div><div class="line"><span class="variable">$mozroots</span> <span class="subst">--</span><span class="keyword">import</span> <span class="subst">--</span>sync</div></pre></td></tr></table></figure>
+
+<p>Nu gaan we ASP.NET vNext installeren, omdat ASP.NET vNext nog in Alpha/Beta fase is willen we graag de laatste versie (alpha4 op dit moment)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo curl http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/aspnet/Home/dev/kvminstall.<span class="keyword">sh</span> | <span class="keyword">sh</span> &amp;&amp; <span class="keyword">source</span> ~/.kre/kvm/kvm.<span class="keyword">sh</span></div></pre></td></tr></table></figure>
+
+<p>Als je toch liever een meer stabiele versie wilt kan je de master branch (alpha3 op dit moment) installeren met het volgende commando</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo curl http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/aspnet/Home/master/kvminstall.<span class="keyword">sh</span> | <span class="keyword">sh</span> &amp;&amp; <span class="keyword">source</span>~/.kre/kvm/kvm.<span class="keyword">sh</span></div></pre></td></tr></table></figure>
+
+<p>ASP.NET vNext is nu geinstalleerd en we gaan met de K Package Manager (kpm) de laatste packages ophalen.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$kvm</span> upgrade</div></pre></td></tr></table></figure>
+
+<p>In principe kan je nu gewoon een ASP.NET project aanmaken zoals bijvoorbeeld hier beschreven staat.</p>
+<p>Maar we gaan nog een stapje verder, er is namelijk een tool genaamd Yeoman welke het mogelijk maakt om eenvoudig project templates aan te maken. Voor Yeoman is wel Node.js nodig dus deze gaan we ook installeren</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#curl -sL https://deb.nodesource.com/setup | bash -</span></div><div class="line"><span class="preprocessor">#apt-get install nodejs</span></div><div class="line"><span class="preprocessor">#npm install -g yo</span></div></pre></td></tr></table></figure>
+
+<p>Yeoman is nu geinstalleerd en we installeren het template voor vNext</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#npm install -g generator-aspnet</span></div></pre></td></tr></table></figure>
+
+<p>Yeoman is nu geinstalleerd met de vNext project templates.</p>
+<p>Omdat httpapi.dll en Kestrel nog geen native builds voor Linux hebben kunnen we van deze templates alleen de Consoleapplication draaien.</p>
+<p>Start nu Yeoman op met yo en kies de Console Application template</p>
+<p><a href="http://imgur.com/39vJi3o" target="_blank" rel="external"><img src="https://i.imgur.com/39vJi3o.png" alt="" title="Hosted by imgur.com"></a><br>Het kan zijn dat er wat error’s komen bij een kpm restore omdat kpm de NuGet.config nog niet helemaal goed kan lezen onder Linux, dit kan je oplossen door het volgende commando te draaien</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$kpm</span> restore -s <span class="symbol">https:</span>/<span class="regexp">/www.myget.org/</span><span class="constant">F</span>/aspnetmaster/ -f <span class="symbol">https:</span>/<span class="regexp">/nuget.org/api</span><span class="regexp">/v2/</span></div></pre></td></tr></table></figure>
+
+<p>Ga nu naar de ConsoleApplication map die zojuist is aangemaakt en type</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$k</span> run</div></pre></td></tr></table></figure>
+
+<p>ASP.NET vNext zal nu het project.json project bestand lezen en alle dependencies inladen en doormiddel van de RyuJIT Program.cs draaien</p>
+<p>Als je nu bijvoorbeeld de volgende regel aan je Program.cs toevoegt zal je zien dat het ook echt onder Linux draait</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Console.WriteLine(string.<span class="keyword">Format</span>(<span class="string">"Currently running {0}"</span>, <span class="keyword">Environment</span>.OSVersion));</div></pre></td></tr></table></figure>
+
+<p><a href="http://imgur.com/wMy4EUA" target="_blank" rel="external"><img src="https://i.imgur.com/wMy4EUA.png" alt="" title="Hosted by imgur.com"></a><br>Conclusie van ASP.NET vNext, het heeft erg veel potentie maar het is nog wel in alpha fase, verwacht dus dat er een hoop dingen nog niet werken.</p>
+<p>Just-In-Time compiling van .NET onder Linux, wie had dat ooit geacht, ik niet in ieder geval!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/" target="_blank" rel="external">Eerder</a> heb ik al een uitleg gegeven over wat ASP.NET vNext precies is. Nu beloofd Microsoft goede cross platform compatibiliteit, met Windows, Linux en OS X en was ik benieuwd hoe goed dit nu eigenlijk werkt op Linux. Ik heb hiervoor een Debian Wheezy installatie gebruikt welke ik heb geupgrade naar Debian Sid, of tewel Debian testing.</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="ASP.NET" scheme="https://webstack.nl/tag/asp-net/"/>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="debian" scheme="https://webstack.nl/tag/debian/"/>
+    
+      <category term="Linux" scheme="https://webstack.nl/tag/linux/"/>
+    
+      <category term="vNext" scheme="https://webstack.nl/tag/vnext/"/>
+    
+      <category term="ASP.NET vNext" scheme="https://webstack.nl/category/asp-net-vnext/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/asp-net-vnext/coding/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/category/asp-net-vnext/coding/microsoft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ASP.NET vNext, wat is het en wat doet het?]]></title>
+    <link href="https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/"/>
+    <id>https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/</id>
+    <published>2014-08-24T10:29:27.000Z</published>
+    <updated>2014-09-19T13:54:44.000Z</updated>
+    <content type="html"><![CDATA[<p>ASP.NET vNext, het klinkt heel mooi maar wat is het precies en wat doet het? Een paar jaar geleden is Microsoft en met name het ASP.NET en Web Tools team een andere weg ingeslagen, ze zijn zich namelijk steeds meer gaan focussen op meer openheid binnen het .NET Framework. Ze doen dit door code opensource te maken, meer betrokkenheid met de community te creëren en door ASP.NET meer los te trekken van het hele framework wat helemaal geïntegreerd in Windows zit.</p>
+<p>Afgelopen April heeft Microsoft tijdens Build 2014 al een hoop nieuwe dingen aangekondigd, onder andere .NET Native compiler, het Roslyn platform en een nieuwe JIT (Just-In-Time compiler) genaamd RyuJIT. Als je meer over Build 2014 wil weten dan kan je dat <a href="https://webstack.nl/tag/build-2014/" target="_blank" rel="external">hier</a> lezen.</p>
+<p>In de tussentijd heeft Microsoft absoluut niet stilgezeten en zijn ze met ASP.NET vNext op de proppen gekomen.</p>
+<p>Oké leuk, maar wat is vNext precies?</p>
+<a id="more"></a>
+
+<p>ASP.NET vNext is kort samen gevat:</p>
+<ul>
+<li>Side by Side, je kan de .NET runtime samen met je applicatie deployen</li>
+<li>Alles is in <a href="http://nuget.org" target="_blank" rel="external">NuGet</a> repositories te vinden, zelfs core .NET functionaliteit en de .NET runtime. Geen lastige project files meer maar simpele JSON bestanden</li>
+<li>Cloud en server geoptimaliseerd</li>
+<li>ASP.NET MVC en API zijn eindelijk samengevoegd</li>
+<li><a href="http://nl.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="external">Dependency injection</a> standaard beschikbaar</li>
+<li>Alles is opensource gemaakt, zie <a href="https://github.com/aspnet/Home" target="_blank" rel="external">github.com/aspnet/Home</a></li>
+<li>Niet meer afhankelijk van het gehele .NET Framework voor updates</li>
+<li>Alles naar het <a href="http://owin.org/" target="_blank" rel="external">OWIN</a> model</li>
+<li>.NET op meerder platformen draaien met <a href="http://www.mono-project.com/" target="_blank" rel="external">Xamarin’s Mono</a></li>
+</ul>
+<p>Zie hier een korte 4 minuten uitleg van SSW TV over ASP.NET vNext</p>
+<iframe src="//www.youtube-nocookie.com/embed/_XmpFGQ37NA?rel=0" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>]]></content>
+    <summary type="html">
+    <![CDATA[<p>ASP.NET vNext, het klinkt heel mooi maar wat is het precies en wat doet het? Een paar jaar geleden is Microsoft en met name het ASP.NET en Web Tools team een andere weg ingeslagen, ze zijn zich namelijk steeds meer gaan focussen op meer openheid binnen het .NET Framework. Ze doen dit door code opensource te maken, meer betrokkenheid met de community te creëren en door ASP.NET meer los te trekken van het hele framework wat helemaal geïntegreerd in Windows zit.</p>
+<p>Afgelopen April heeft Microsoft tijdens Build 2014 al een hoop nieuwe dingen aangekondigd, onder andere .NET Native compiler, het Roslyn platform en een nieuwe JIT (Just-In-Time compiler) genaamd RyuJIT. Als je meer over Build 2014 wil weten dan kan je dat <a href="https://webstack.nl/tag/build-2014/" target="_blank" rel="external">hier</a> lezen.</p>
+<p>In de tussentijd heeft Microsoft absoluut niet stilgezeten en zijn ze met ASP.NET vNext op de proppen gekomen.</p>
+<p>Oké leuk, maar wat is vNext precies?</p>
+]]>
+    
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="ASP.NET" scheme="https://webstack.nl/tag/asp-net/"/>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="Owin" scheme="https://webstack.nl/tag/owin/"/>
+    
+      <category term="vNext" scheme="https://webstack.nl/tag/vnext/"/>
+    
+      <category term="ASP.NET vNext" scheme="https://webstack.nl/category/asp-net-vnext/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/asp-net-vnext/coding/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/category/asp-net-vnext/coding/microsoft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[WhatsApp-Forward, eenvoudig WhatsApp berichten doorsturen]]></title>
+    <link href="https://webstack.nl/2014/05/whatsapp-doorsturen/"/>
+    <id>https://webstack.nl/2014/05/whatsapp-doorsturen/</id>
+    <published>2014-05-10T10:39:45.000Z</published>
+    <updated>2014-09-19T13:57:33.000Z</updated>
+    <content type="html"><![CDATA[<p>Al eerder was ik bezig geweest met de <a href="https://github.com/perezdidac/WhatsAPINet" target="_blank" rel="external">WhatsApp API voor C#</a>. Na een paar proof of concept’s met SignalR en OWIN heb ik toch maar even iets bruikbaars in elkaar geknutseld. Het eindproduct is <a href="https://github.com/matthijsbreemans/whatsapp-forward" target="_blank" rel="external">WhatsApp-Forward</a> geworden! Het is een eenvoudige console applicatie welke naar berichten van een <a href="http://whatsapp.com" target="_blank" rel="external">WhatsApp</a> account luisterd en deze doorstuurd naar een vooraf gedefinieerd telefoon nummer. Die gene die het doorgestuurde bericht ontvangt kan hier ook weer eenvoudig op reageren, dit kan een persoon zijn maar ook WhatsApp groepen. Ook kan er eenvoudig opgevraagd worden in welke groepen de gebruiker zit.</p>
+<p><a id="more"></a><br>Wat wordt er nu ondersteund</p>
+<ul>
+<li>WhatsApp doorsturen naar een andere telefoon</li>
+<li>Reageren op berichten</li>
+<li>Groepen opvragen</li>
+<li><p>Reageren in die groepen<br>Wat komt er in de toekomst in</p>
+</li>
+<li><p>Betere groepen ondersteuning</p>
+</li>
+<li>Media berichten doorsturen</li>
+<li><p>Online/offline status bewerken<br>Let wel op de volgende dingen</p>
+</li>
+<li><p>Je WhatsApp account werkt nog maar via deze applicatie, indien je weer gebruik wil maken van de officiele WhatsApp app dan moet het telefoon nummer weer geactiveerd worden en dan zal deze applicatie niet meer werken</p>
+</li>
+<li>De applicatie stuurt alleen berichten door als deze actief is</li>
+<li>De applicatie werkt niet met proxy servers</li>
+<li>Er zit geen garantie op en ik ben ook niet verantwoordelijk voor enige schade aan het WhatsApp account<br>De source code van de alpha versie is <a href="https://github.com/matthijsbreemans/whatsapp-forward" target="_blank" rel="external">hier op Github</a> te vinden</li>
+</ul>
+<p>Telefoon nummer, wachtwoord, naam en doorstuur nummer dient te worden ingesteld in de config file</p>
+<p>Voorbeeld:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;add <span class="variable">key=</span><span class="string">"phonenumber"</span> <span class="variable">value=</span><span class="string">"31612345678"</span> /&gt;</div><div class="line">&lt;add <span class="variable">key=</span><span class="string">"password"</span> <span class="variable">value=</span><span class="string">"password"</span> /&gt;</div><div class="line">&lt;add <span class="variable">key=</span><span class="string">"displayname"</span> <span class="variable">value=</span><span class="string">"whatsapp"</span> /&gt;</div><div class="line">&lt;add <span class="variable">key=</span><span class="string">"forward"</span> <span class="variable">value=</span><span class="string">"31600000000@s.whatsapp.net"</span> /&gt;</div></pre></td></tr></table></figure>
+
+<p>Je gebruikers naam is je telefoon nummer zonder + of 0 maar met landcode. Het wachtwoord kan worden achterhaald door een nieuw account aan te maken via <a href="https://github.com/perezdidac/WhatsAPINet" target="_blank" rel="external">https://github.com/perezdidac/WhatsAPINet</a> ‘s WhatsAppPort</p>
+<p>Je kan berichten terugsturen vanaf het telefoon nummer dat het doorgestuurde bericht heeft ontvangen bij door een bericht terug te sturen met !#(whatsapp account naam (31512345678@s.whatsapp.net) bericht</p>
+<p>Voorbeeld: !#31612345678@s.whatsapp.net test</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Al eerder was ik bezig geweest met de <a href="https://github.com/perezdidac/WhatsAPINet" target="_blank" rel="external">WhatsApp API voor C#</a>. Na een paar proof of concept’s met SignalR en OWIN heb ik toch maar even iets bruikbaars in elkaar geknutseld. Het eindproduct is <a href="https://github.com/matthijsbreemans/whatsapp-forward" target="_blank" rel="external">WhatsApp-Forward</a> geworden! Het is een eenvoudige console applicatie welke naar berichten van een <a href="http://whatsapp.com" target="_blank" rel="external">WhatsApp</a> account luisterd en deze doorstuurd naar een vooraf gedefinieerd telefoon nummer. Die gene die het doorgestuurde bericht ontvangt kan hier ook weer eenvoudig op reageren, dit kan een persoon zijn maar ook WhatsApp groepen. Ook kan er eenvoudig opgevraagd worden in welke groepen de gebruiker zit.</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="Github" scheme="https://webstack.nl/tag/github/"/>
+    
+      <category term="WhatsApp" scheme="https://webstack.nl/tag/whatsapp/"/>
+    
+      <category term="WhatsApp doorsturen" scheme="https://webstack.nl/tag/whatsapp-doorsturen/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/coding/"/>
+    
+      <category term="WhatsApp" scheme="https://webstack.nl/category/coding/whatsapp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Razor View Engine in Nancy]]></title>
+    <link href="https://webstack.nl/2014/05/razor-view-engine-in-nancy/"/>
+    <id>https://webstack.nl/2014/05/razor-view-engine-in-nancy/</id>
+    <published>2014-05-06T18:51:45.000Z</published>
+    <updated>2014-11-24T10:07:58.000Z</updated>
+    <content type="html"><![CDATA[<p>Het vervolg op mijn <a href="https://webstack.nl/2014/04/het-nancy-webframework-hosten-op-heroku-dankzij-owin/" title="Het Nancy webframework hosten op Heroku dankzij Owin" target="_blank" rel="external">vorige post</a> waarin ik blogde over Nancy in combinatie met Owin en Heroku. Toen was het nog een simpele applicatie, maar de kracht van Nancy is dat het zo flexibel is dat je ook gewoon <a href="https://github.com/NancyFx/Nancy/wiki/Razor-View-Engine" target="_blank" rel="external">Razor cshtml view’s</a> kan laten renderen. Hierdoor kan je ook gewoon traditionele MVC applicaties met Nancy maken. Het grote verschil met ASP.NET MVC is dat Nancy modules in plaats van controllers heeft. Ook moet eer een Nancy object wrapper in je View Model gebruikt worden.</p>
+<p><a id="more"></a><br>Nu de installatie, eigenlijk is het heel erg simpel, een enkel <a href="http://nuget.org" target="_blank" rel="external">Nuget</a> commando is genoeg om Nancy de Razor Views te laten renderen.</p>
+<ul>
+<li>Open de Nuget package manager console in Visual Studio</li>
+<li>Voor het commando <em>Install-Package Nancy.ViewEngines.Razor</em> uit</li>
+</ul>
+<p>Als je ook wilt dat de solution zowel binnen Visual Studio als in Heroku (of Mono xbuild) gecompileerd kan worden dient er wel een kleine wijziging in het csproject bestand gemaakt te worden. Nancy Razor voegt namelijk een post-build actie toe om het debuggen mogelijk te maken. Vervang het toegevoegd post-build statement met <a href="https://github.com/NancyFx/Nancy/issues/1082#issuecomment-20228265" target="_blank" rel="external">deze code</a> . Let wel op de build nummers deze dienen te worden vervangen met de versie die door Nuget is geinstalleerd.</p>
+<p>Ik heb op <a href="https://github.com/matthijsbreemans/nancy-owin-heroku" target="_blank" rel="external">Github een voorbeeld</a> solution staan welke zowel binnen Visual Studio 2013 als via Heroku gecompileerd kan worden.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Het vervolg op mijn <a href="https://webstack.nl/2014/04/het-nancy-webframework-hosten-op-heroku-dankzij-owin/" title="Het Nancy webframework hosten op Heroku dankzij Owin" target="_blank" rel="external">vorige post</a> waarin ik blogde over Nancy in combinatie met Owin en Heroku. Toen was het nog een simpele applicatie, maar de kracht van Nancy is dat het zo flexibel is dat je ook gewoon <a href="https://github.com/NancyFx/Nancy/wiki/Razor-View-Engine" target="_blank" rel="external">Razor cshtml view’s</a> kan laten renderen. Hierdoor kan je ook gewoon traditionele MVC applicaties met Nancy maken. Het grote verschil met ASP.NET MVC is dat Nancy modules in plaats van controllers heeft. Ook moet eer een Nancy object wrapper in je View Model gebruikt worden.</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="Github" scheme="https://webstack.nl/tag/github/"/>
+    
+      <category term="Heroku" scheme="https://webstack.nl/tag/heroku/"/>
+    
+      <category term="Katana" scheme="https://webstack.nl/tag/katana/"/>
+    
+      <category term="Mono" scheme="https://webstack.nl/tag/mono/"/>
+    
+      <category term="Nancy" scheme="https://webstack.nl/tag/nancy/"/>
+    
+      <category term="Owin" scheme="https://webstack.nl/tag/owin/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Het Nancy webframework hosten op Heroku dankzij Owin]]></title>
+    <link href="https://webstack.nl/2014/04/het-nancy-webframework-hosten-op-heroku-dankzij-owin/"/>
+    <id>https://webstack.nl/2014/04/het-nancy-webframework-hosten-op-heroku-dankzij-owin/</id>
+    <published>2014-04-29T19:45:29.000Z</published>
+    <updated>2014-11-24T10:16:44.000Z</updated>
+    <content type="html"><![CDATA[<p>Eerder <a href="https://webstack.nl/2014/03/gratis-paas-diensten/" title="Gratis PaaS diensten" target="_blank" rel="external">berichte ik al over Heroku’s PaaS dienst</a> en <a href="https://webstack.nl/2014/04/self-hosted-signalr-met-owin/" title="Self-hosted SignalR met Owin" target="_blank" rel="external">vertelde</a> ik ook al wat over Owin en Katana. Onlangs kwam ik erachter dat Heroku het Mono project ondersteunde. <a href="http://mono-project.org" target="_blank" rel="external">Mono</a> is een opensource implementatie van Microsoft’s .NET en zorgt er onder andere voor dat je .NET applicaties onder Linux kan draaien. Doormiddel een <a href="http://friism.com/running-net-on-heroku" target="_blank" rel="external">speciaal buildpack</a> kan Heroku voor jou je .NET applicatie rechtstreeks vanuit een Git repository compilen</p>
+<p>Dankzij Owin is het nu mogelijk om self hosted applicaties te draaien die niet meer onder IIS moeten draaien en hierdoor volledig in Mono kunnen draaien zonder IIS. Microsoft heeft met haar eigen Owin implementatie genaamd Katana support voor WebApi en SignalR geleverd en deze kunnen dus zonder problemen binnen Owin draaien. Beide frameworks hebben zo snel van IIS/ASP.NET af kunnen stappen omdat hier vanaf het begin rekening mee is gehouden. Dat geldt helaas niet voor ASP.NET MVC, deze is te diep verbonden met ASP.NET welke weer zwaar op IIS ondersteuning leunt dat het maar de vraag is of ASP.NET MVC ooit in Owin zal draaien.</p>
+<p>Gelukkig is er een ander web framework voor .NET genaamd <a href="http://nancyfx.org" target="_blank" rel="external">Nancy</a>. Nancy is vergelijkbaar met het Ruby framework <a href="http://sinatrarb.com" target="_blank" rel="external">Sinatra </a>en is gemaakt voor websites en webservices zonder dat het in de weg zit met zogenaamde “<a href="http://www.johndcook.com/blog/2011/11/15/plumber-programmers/" target="_blank" rel="external">plumbing</a>“. Ondersteund Nancy ook MVC vraag je jezelf dan af? Jazeker maar het is niet verplicht om het MVC pattern te gebruiken. Uiteindelijk is Nancy maar een simpel endpoint dat naar Http Requests luistert. Gelukkig kan je ook gewoon MVC gebruiken zoals je dat wilt. Je kan Views laten serveren vanuit een Views map, Models aanmaken en je requests er naar toe mappen net zoals bij de reguliere ASP.NET MVC</p>
+<p>Ik heb zelf een klein voorbeeld gemaakt welke een simpele Nancy applicatie door middel van Owin op <a href="http://heroku.net" target="_blank" rel="external">Heroku</a> gehost is. De source is <a href="https://github.com/matthijsbreemans/nancy-owin-heroku" target="_blank" rel="external">hier op Github</a> te vinden.</p>
+<p>Hoe moet je het draaien?</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/matthijsbreemans/nancy-owin-heroku.git</div><div class="line"><span class="keyword">cd</span> nancy-owin-heroku</div><div class="line">heroku create</div><div class="line">heroku confi<span class="variable">g:add</span> BUILDPACK_URL=http<span class="variable">s:</span>//github.<span class="keyword">com</span>/friism/heroku-buildpack-mono/</div><div class="line">git push heroku master</div></pre></td></tr></table></figure>
+
+<p>Niet vergeten een worker aan je Heroku app te koppelen en als het goed is kan je nu naar de app navigeren met je browser.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Eerder <a href="https://webstack.nl/2014/03/gratis-paas-diensten/" title="Gratis PaaS diensten" target="_blank" rel="external">berichte i]]>
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="Github" scheme="https://webstack.nl/tag/github/"/>
+    
+      <category term="Heroku" scheme="https://webstack.nl/tag/heroku/"/>
+    
+      <category term="Katana" scheme="https://webstack.nl/tag/katana/"/>
+    
+      <category term="Mono" scheme="https://webstack.nl/tag/mono/"/>
+    
+      <category term="Nancy" scheme="https://webstack.nl/tag/nancy/"/>
+    
+      <category term="Owin" scheme="https://webstack.nl/tag/owin/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Self-hosted SignalR met Owin]]></title>
+    <link href="https://webstack.nl/2014/04/self-hosted-signalr-met-owin/"/>
+    <id>https://webstack.nl/2014/04/self-hosted-signalr-met-owin/</id>
+    <published>2014-04-23T20:51:52.000Z</published>
+    <updated>2014-09-19T18:26:25.000Z</updated>
+    <content type="html"><![CDATA[<p>Onlangs ben ik bezig geweest met het uitwerken van een nuttige toepassing van de C# Api voor WhatsApp (GitHub fork <a href="https://github.com/matthijsbreemans/WhatsAPINet" target="_blank" rel="external">hier</a>). Iedereen weet ondertussen dat de openheid en compatibiliteit het grote gemis is bij WhatsApp dus het leek me leuk om wat te gaan spelen met een zelf geschreven crossplatform client. Mijn keuze is uiteindelijk op een implementatie van <a href="https://github.com/venomous0x/WhatsAPI" target="_blank" rel="external">WhatsApi</a> geworden. Ook zocht ik al een tijdje naar een nuttige toepassing om <a href="http://en.wikipedia.org/wiki/SignalR" target="_blank" rel="external">SignalR</a> te gaan gebruiken (op een simpele oldschool Ilse chat room na) en is mijn keuze uiteindelijk gevallen op een self hosted implementatie van Owin in combinatie met SignalR.</p>
+<p>Nieuwsgierig wat SignalR en/of Owin nou precies inhoud?</p>
+<a id="more"></a>
+
+<p>Bekijk dan deze goede talk over <a href="http://owin.org/" target="_blank" rel="external">Owin</a>, <a href="https://katanaproject.codeplex.com/documentation" target="_blank" rel="external">Katana</a> en <a href="http://www.infoq.com/news/2014/02/helios" target="_blank" rel="external">Helios</a>:</p>
+<iframe src="//www.youtube-nocookie.com/embed/G5Kf7R07l_g" height="480" width="853" allowfullscreen frameborder="0"></iframe>
+
+<p>Ook geinteresseerd in SignalR?</p>
+<iframe src="//www.youtube-nocookie.com/embed/4sBVcu-NBP4" height="480" width="640" allowfullscreen frameborder="0"></iframe>
+
+<p>Ben je benieuwd hoe je snel Owin en Signalr kan combineren? Op de <a href="http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/tutorial-signalr-20-self-host" target="_blank" rel="external">asp.net site staat</a> een tutorial over hoe simpel het is om deze twee te combineren en hier mee zeer simpel een realtime applicatie neer te kunnen zetten zonder IIS.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Onlangs ben ik bezig geweest met het uitwerken van een nuttige toepassing van de C# Api voor WhatsApp (GitHub fork <a href="https://github.com/matthijsbreemans/WhatsAPINet" target="_blank" rel="external">hier</a>). Iedereen weet ondertussen dat de openheid en compatibiliteit het grote gemis is bij WhatsApp dus het leek me leuk om wat te gaan spelen met een zelf geschreven crossplatform client. Mijn keuze is uiteindelijk op een implementatie van <a href="https://github.com/venomous0x/WhatsAPI" target="_blank" rel="external">WhatsApi</a> geworden. Ook zocht ik al een tijdje naar een nuttige toepassing om <a href="http://en.wikipedia.org/wiki/SignalR" target="_blank" rel="external">SignalR</a> te gaan gebruiken (op een simpele oldschool Ilse chat room na) en is mijn keuze uiteindelijk gevallen op een self hosted implementatie van Owin in combinatie met SignalR.</p>
+<p>Nieuwsgierig wat SignalR en/of Owin nou precies inhoud?</p>
+]]>
+    
+    </summary>
+    
+      <category term=".NET" scheme="https://webstack.nl/tag/-net/"/>
+    
+      <category term="C#" scheme="https://webstack.nl/tag/c/"/>
+    
+      <category term="Katana" scheme="https://webstack.nl/tag/katana/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/tag/microsoft/"/>
+    
+      <category term="Owin" scheme="https://webstack.nl/tag/owin/"/>
+    
+      <category term="SignalR" scheme="https://webstack.nl/tag/signalr/"/>
+    
+      <category term="WhatsApp" scheme="https://webstack.nl/tag/whatsapp/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Microsoft Build 2014, de korte versie]]></title>
+    <link href="https://webstack.nl/2014/04/microsoft-build-2014-de-korte-versie/"/>
+    <id>https://webstack.nl/2014/04/microsoft-build-2014-de-korte-versie/</id>
+    <published>2014-04-10T07:47:29.000Z</published>
+    <updated>2014-09-19T18:27:55.000Z</updated>
+    <content type="html"><![CDATA[<p>Nieuwsgierig wat er allemaal op Microsoft’s <a href="http://www.buildwindows.com/" target="_blank" rel="external">Build 2014</a> conferentie gebeurd is? Bekijk dan hier de 7 minuten samenvatting van de keynote gemaakt door <a href="http://www.theverge.com/2014/4/2/5575522/microsoft-build-2014-keynote-in-seven-minutes" target="_blank" rel="external">The Verge</a></p>
+<p><a id="more"></a></p>
+<iframe src="//www.youtube-nocookie.com/embed/kT3qLOMK6V4" height="360" width="640" allowfullscreen frameborder="0"></iframe>]]></content>
+    <summary type="html">
+    <![CDATA[<p>Nieuwsgierig wat er allemaal op Microsoft’s <a href="http://www.buildwindows.com/" target="_blank" rel="external">Build 2014</a> conferentie gebeurd is? Bekijk dan hier de 7 minuten samenvatting van de keynote gemaakt door <a href="http://www.theverge.com/2014/4/2/5575522/microsoft-build-2014-keynote-in-seven-minutes" target="_blank" rel="external">The Verge</a></p>
+<p>]]>
+    
+    </summary>
+    
+      <category term="Build 2014" scheme="https://webstack.nl/tag/build-2014/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/tag/microsoft/"/>
+    
+      <category term="Windows" scheme="https://webstack.nl/tag/windows/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/category/microsoft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Wat is de OpenSSL Heartbleed bug?]]></title>
+    <link href="https://webstack.nl/2014/04/wat-is-de-openssl-heartbleed-bug/"/>
+    <id>https://webstack.nl/2014/04/wat-is-de-openssl-heartbleed-bug/</id>
+    <published>2014-04-09T10:08:59.000Z</published>
+    <updated>2014-09-19T18:27:22.000Z</updated>
+    <content type="html"><![CDATA[<p>De <a href="http://openssl.org" target="_blank" rel="external">OpenSSL</a> <a href="http://heartbleed.com" target="_blank" rel="external">Heartbleed bug</a>, het gehele internet is er sinds maandag al in rep en roer over. OpenSSL wordt door meer dan de helft van alle servers gebruikt en een bug hierin kan serieuze gevolgen hebben. Het blijkt nu dus dat deze bug al 2 jaar in de broncode van OpenSSLzat! Grote sites die OpenSSL gebruiken waren hierdoor al 2 jaar onveilig ,onder andere Yahoo <a href="http://www.zdnet.com/heartbleed-bug-affects-yahoo-imgur-okcupid-convo-7000028213/" target="_blank" rel="external">was vatbaar</a> voor misbruik van deze bug.</p>
+<p>Nieuwsgierig of je eigen site vatbaar is? Bekijk het <a href="http://filippo.io/Heartbleed/" target="_blank" rel="external">hier</a></p>
+<a id="more"></a>
+
+<p>Maar wat werkt de Heartbleed bug? Tom Scott legt het in duidelijk taal uit</p>
+<iframe src="//www.youtube-nocookie.com/embed/rE5dW3BTpn4" height="360" width="640" allowfullscreen frameborder="0"></iframe>]]></content>
+    <summary type="html">
+    <![CDATA[<p>De <a href="http://openssl.org" target="_blank" rel="external">OpenSSL</a> <a href="http://heartbleed.com" target="_blank" rel="external">Heartbleed bug</a>, het gehele internet is er sinds maandag al in rep en roer over. OpenSSL wordt door meer dan de helft van alle servers gebruikt en een bug hierin kan serieuze gevolgen hebben. Het blijkt nu dus dat deze bug al 2 jaar in de broncode van OpenSSLzat! Grote sites die OpenSSL gebruiken waren hierdoor al 2 jaar onveilig ,onder andere Yahoo <a href="http://www.zdnet.com/heartbleed-bug-affects-yahoo-imgur-okcupid-convo-7000028213/" target="_blank" rel="external">was vatbaar</a> voor misbruik van deze bug.</p>
+<p>Nieuwsgierig of je eigen site vatbaar is? Bekijk het <a href="http://filippo.io/Heartbleed/" target="_blank" rel="external">hier</a></p>
+]]>
+    
+    </summary>
+    
+      <category term="Bug" scheme="https://webstack.nl/tag/bug/"/>
+    
+      <category term="Heartbeat" scheme="https://webstack.nl/tag/heartbeat/"/>
+    
+      <category term="Heartbleed" scheme="https://webstack.nl/tag/heartbleed/"/>
+    
+      <category term="OpenSSL" scheme="https://webstack.nl/tag/openssl/"/>
+    
+      <category term="Security" scheme="https://webstack.nl/tag/security/"/>
+    
+      <category term="Veiligheid" scheme="https://webstack.nl/category/veiligheid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[CloudFlare vs Incapsula: Site optimalisatie]]></title>
+    <link href="https://webstack.nl/2014/04/cloudflare-vs-incapsula-site-optimalisatie/"/>
+    <id>https://webstack.nl/2014/04/cloudflare-vs-incapsula-site-optimalisatie/</id>
+    <published>2014-04-08T07:56:02.000Z</published>
+    <updated>2014-11-24T08:57:51.000Z</updated>
+    <content type="html"><![CDATA[<p>Eerder <a href="https://webstack.nl/2014/03/gratis-content-delivery-networks-welk-cdn-is-de-beste/" target="_blank" rel="external">schreef</a> ik al over de verschillen tussen <a href="http://cloudflare.com" target="_blank" rel="external">CloudFlare</a> en <a href="http://incapsula.com" target="_blank" rel="external">Incapsula</a>.Beide diensten bieden onder andere aan om je website te versnellen, onder nadere door middel van goede bereikbaarheid, minification en gzip. Een goede manier om dit te meten is Yahoo’s <a href="http://yslow.org" target="_blank" rel="external">YSlow</a> en Google’s <a href="https://developers.google.com/speed/pagespeed/" target="_blank" rel="external">Page Speed</a>. Deze berekenen een score en adviseren hoe je pagina geoptimaliseerd kan worden.</p>
+<p>Om dit eenvoudig te testen heb ik gebruik gemaakt van <a href="http://gtmetrix.com" target="_blank" rel="external">GTMetrix</a>, deze combineert beide technieken om de snelheid van de pagina te meten. Totaal zijn er 3 verschillende testen uitgevoerd, een met CloudFlare, een met Incapsula en een zonder beide. Alle drie de testen werden uitgevoerd op de zelfde Wordpress site op de zelfde host</p>
+<a id="more"></a>
+
+<h4 id="Zonder">Zonder</h4>
+<p><a href="http://imgur.com/IHLMYm5" target="_blank" rel="external"><img src="https://i.imgur.com/IHLMYm5.png" alt="" title="Hosted by imgur.com"></a></p>
+<p>&nbsp;</p>
+<p>Zonder enige CDN optimalisatie krijgt Wordpress en 96% Page Speed en een 86% YSlow rating.</p>
+<h4 id="CloudFlare">CloudFlare</h4>
+<p><a href="http://imgur.com/wysVLHo" target="_blank" rel="external"><img src="https://i.imgur.com/wysVLHo.png" alt="" title="Hosted by imgur.com"></a></p>
+<p>&nbsp;</p>
+<p>CloudFlare zorgt voor een 97% score bij zowel Page Speed als YSlow,</p>
+<p>&nbsp;</p>
+<h4 id="Incapsula">Incapsula</h4>
+<p><a href="http://imgur.com/P7GIVVK" target="_blank" rel="external"><img src="https://i.imgur.com/P7GIVVK.png" alt="" title="Hosted by imgur.com"></a></p>
+<p>&nbsp;</p>
+<p>Met Incapsula voor onze Wordpress site krijgt deze een 96% Page Speed cijfer en een 85% YSlow wat 1% minder is dan zonder CDN</p>
+<h4 id="Conclusie">Conclusie</h4>
+<p>CloudFlare voert daadwerkelijk verbeteringen door wat betreft de laadbaarheid van de pagina. De laadtijd rond de 1 seconde en meer dan de helft verkleining van de pagina grote zorgt er voor dat CloudFlare de Wordpress site op een 97% Page Speed en 97% YSlow score krijgt. Wat betreft Incapsula, deze zorgt amper voor verbetering in de pagina grote en krijgt zelfs een lager YSlow cijfer! Het advies; gebruik CloudFlare als je wilt dat je site ook daadwerkelijk sneller wordt!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Eerder <a href="https://webstack.nl/2014/03/gratis-content-delivery-networks-welk-cdn-is-de-beste/" target="_blank" rel="external">schreef</a> ik al over de verschillen tussen <a href="http://cloudflare.com" target="_blank" rel="external">CloudFlare</a> en <a href="http://incapsula.com" target="_blank" rel="external">Incapsula</a>.Beide diensten bieden onder andere aan om je website te versnellen, onder nadere door middel van goede bereikbaarheid, minification en gzip. Een goede manier om dit te meten is Yahoo’s <a href="http://yslow.org" target="_blank" rel="external">YSlow</a> en Google’s <a href="https://developers.google.com/speed/pagespeed/" target="_blank" rel="external">Page Speed</a>. Deze berekenen een score en adviseren hoe je pagina geoptimaliseerd kan worden.</p>
+<p>Om dit eenvoudig te testen heb ik gebruik gemaakt van <a href="http://gtmetrix.com" target="_blank" rel="external">GTMetrix</a>, deze combineert beide technieken om de snelheid van de pagina te meten. Totaal zijn er 3 verschillende testen uitgevoerd, een met CloudFlare, een met Incapsula en een zonder beide. Alle drie de testen werden uitgevoerd op de zelfde Wordpress site op de zelfde host</p>
+]]>
+    
+    </summary>
+    
+      <category term="CDN" scheme="https://webstack.nl/tag/cdn/"/>
+    
+      <category term="CloudFlare" scheme="https://webstack.nl/tag/cloudflare/"/>
+    
+      <category term="Content Delivery Network" scheme="https://webstack.nl/tag/content-delivery-network/"/>
+    
+      <category term="Incapsula" scheme="https://webstack.nl/tag/incapsula/"/>
+    
+      <category term="Page Speed" scheme="https://webstack.nl/tag/page-speed/"/>
+    
+      <category term="YSlow" scheme="https://webstack.nl/tag/yslow/"/>
+    
+      <category term="Content Delivery Networks" scheme="https://webstack.nl/category/content-delivery-networks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Gratis Content Delivery Networks: Welk CDN is de beste?]]></title>
+    <link href="https://webstack.nl/2014/03/gratis-content-delivery-networks-welk-cdn-is-de-beste/"/>
+    <id>https://webstack.nl/2014/03/gratis-content-delivery-networks-welk-cdn-is-de-beste/</id>
+    <published>2014-03-26T08:59:42.000Z</published>
+    <updated>2014-11-24T09:01:11.000Z</updated>
+    <content type="html"><![CDATA[<p>Een gratis CDN voor je site, wie wil dat nou niet? Een CDN of <a href="http://en.wikipedia.org/wiki/Content_delivery_network" target="_blank" rel="external">Content Delivery Network</a> zorgt er voor dat je site vanuit iedere plek in de wereld goed en snel bereikbaar is. Zolang je zorgt dat je site door het CDN goed benaderbaar is zorgt deze er voor dat het over de wereld verspreid wordt.</p>
+<p>Daarnaast bieden CDN’s tegenwoordig extra features zoals extra beveiliging, <a href="http://en.wikipedia.org/wiki/Denial-of-service_attack" target="_blank" rel="external">DDoS</a> protectie, CSS en JavaScript <a href="http://en.wikipedia.org/wiki/Minification_(programming" target="_blank" rel="external">minification</a>), SSL, IPV6 en meer. Veel van deze features zijn betaald maar de meeste basic features zijn gratis.</p>
+<p>Twee grote namen op het gebied van CDN’s zijn <a href="http://cloudflare.com" target="_blank" rel="external">CloudFlare</a> en <a href="http://incapsula.com" target="_blank" rel="external">Incapsula</a>. Uiteraard zijn er grotere namen zoals <a href="http://akamai.com" target="_blank" rel="external">Akamai</a> en <a href="http://limelight.com" target="_blank" rel="external">Limelight</a> maar de eerder genoemde zijn de enigen die naast hun betaalde producten ook een gratis dienst aanbieden. Deze CDN’s zijn uitstekend te combineren met de gratis PaaS cloud diensten die ik <a href="http://webstack.nl/2014/03/gratis-paas-diensten/" title="Gratis PaaS diensten" target="_blank" rel="external">eerder</a> besprak.</p>
+<a id="more"></a>
+
+<h2 id="CloudFlare"><a href="http://cloudflare.com" target="_blank" rel="external">CloudFlare</a></h2>
+<p>CloudFlare is in 2009 opgericht en in 2010 gelanceerd door drie medewerkers van Project Honey Pot. CloudFlare kreeg in 2011 grote bekendheid omdat ze de <a href="http://nl.wikipedia.org/wiki/LulzSec" target="_blank" rel="external">LulSec</a> website beveiligde. Op dit moment is CloudFlare te vinden in 24 datacentrum’s over de hele wereld en het is gebaseerd op een aangepast versie van Nginx.</p>
+<h3 id="Voordelen">Voordelen</h3>
+<ul>
+<li>Gebruik van CloudFlare’s snelle en makkelijke DNS dienst</li>
+<li>Website optimalisatie is erg goed</li>
+<li>Gratis basis DDoS bescherming</li>
+</ul>
+<h3 id="Nadelen">Nadelen</h3>
+<ul>
+<li>Verplicht CloudFlare’s DNS server gebruiken</li>
+<li>Maximaal 100MB file upload</li>
+<li>Bandbreedte valt wat tegen voor grote bestanden</li>
+</ul>
+<h2 id="Incapsula"><a href="http://incapsula.com" target="_blank" rel="external">Incapsula</a></h2>
+<p>Incapsula is ook in 2009 opgericht door Gur Shatz en Marc Gaffan. Incapsula is ook in dat jaar voor het publiek gelanceerd. Het bedrijf is op dit moment te vinden in 16 datacenters verspreid over Europa, Amerika, Azie en Australie.</p>
+<h3 id="Voordelen-1">Voordelen</h3>
+<ul>
+<li>Eigen DNS server blijven gebruiken</li>
+<li>Extra login beveiliging per pagina in te stellen</li>
+<li>Erg snel met grote bestanden</li>
+</ul>
+<h3 id="Nadelen-1">Nadelen</h3>
+<ul>
+<li>Eigen DNS server gebruiken blijft een risico</li>
+<li>Website optimalisatie lang niet zo goed als CloudFlare</li>
+<li>DDoS beveiliging pas vanaf $299 per maand.<br>Zoals je ziet hebben CloudFlare en Incapsula vrij veel gemeen. Beide zijn erg goed te gebruiken als een CDN voor je website en hebben beide plus en min punten. Afhankelijk van het type site kan de beste keuze gemaakt worden. Binnenkort zullen beiden in de praktijk vergeleken worden!</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Een gratis CDN voor je site, wie wil dat nou niet? Een CDN of <a href="http://en.wikipedia.org/wiki/Content_delivery_network" target="_blank" rel="external">Content Delivery Network</a> zorgt er voor dat je site vanuit iedere plek in de wereld goed en snel bereikbaar is. Zolang je zorgt dat je site door het CDN goed benaderbaar is zorgt deze er voor dat het over de wereld verspreid wordt.</p>
+<p>Daarnaast bieden CDN’s tegenwoordig extra features zoals extra beveiliging, <a href="http://en.wikipedia.org/wiki/Denial-of-service_attack" target="_blank" rel="external">DDoS</a> protectie, CSS en JavaScript <a href="http://en.wikipedia.org/wiki/Minification_(programming" target="_blank" rel="external">minification</a>), SSL, IPV6 en meer. Veel van deze features zijn betaald maar de meeste basic features zijn gratis.</p>
+<p>Twee grote namen op het gebied van CDN’s zijn <a href="http://cloudflare.com" target="_blank" rel="external">CloudFlare</a> en <a href="http://incapsula.com" target="_blank" rel="external">Incapsula</a>. Uiteraard zijn er grotere namen zoals <a href="http://akamai.com" target="_blank" rel="external">Akamai</a> en <a href="http://limelight.com" target="_blank" rel="external">Limelight</a> maar de eerder genoemde zijn de enigen die naast hun betaalde producten ook een gratis dienst aanbieden. Deze CDN’s zijn uitstekend te combineren met de gratis PaaS cloud diensten die ik <a href="http://webstack.nl/2014/03/gratis-paas-diensten/" title="Gratis PaaS diensten" target="_blank" rel="external">eerder</a> besprak.</p>
+]]>
+    
+    </summary>
+    
+      <category term="CDN" scheme="https://webstack.nl/tag/cdn/"/>
+    
+      <category term="CloudFlare" scheme="https://webstack.nl/tag/cloudflare/"/>
+    
+      <category term="Content Delivery Network" scheme="https://webstack.nl/tag/content-delivery-network/"/>
+    
+      <category term="Incapsula" scheme="https://webstack.nl/tag/incapsula/"/>
+    
+      <category term="Content Delivery Networks" scheme="https://webstack.nl/category/content-delivery-networks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS Summit 2014 komt er aan!]]></title>
+    <link href="https://webstack.nl/2014/03/aws-summit-2014-komt-er-aan/"/>
+    <id>https://webstack.nl/2014/03/aws-summit-2014-komt-er-aan/</id>
+    <published>2014-03-24T08:36:57.000Z</published>
+    <updated>2014-09-19T18:28:21.000Z</updated>
+    <content type="html"><![CDATA[<p>Aanstaande woensdag op 26 maart 2014 is het zover <a href="http://amazon.com" target="_blank" rel="external">Amazon</a> gaat van start met hun <a href="https://aws.amazon.com/aws-summit-2014/" target="_blank" rel="external">Amazon Webservices Summit 2014</a>! AWS Summit staat in het teken van de laatste ontwikkelingen op het gebied van <a href="http://aws.amazon.com" target="_blank" rel="external">AWS diensten</a>. Met name de keynote speech laat zien wat we dit jaar allemaal kunnen gaan verwachten van AWS.</p>
+<p>Helaas is de eerste Summit in San Fransisco maar gelukkig heeft Amazon een <a href="http://aws.amazon.com/live/" target="_blank" rel="external">live stream</a> ter beschikking gesteld waar je alvast een plek kan <a href="http://aws.amazon.com/aws-summit-2014/san-francisco/live-stream" target="_blank" rel="external">reserveren</a>.</p>
+<p>Voor de mensen die er graag bij willen zijn maar geen zin hebben in een verre reis. Op 10 juni 2014 houdt Amazon een AWS Summit in Amsterdam.</p>
+<p>Als je niet kan wachten, <a href="https://www.youtube.com/watch?v=bWL0_Xdntzo" target="_blank" rel="external">hier</a> is een video van Andy Jassy’s keynote van vorig jaar en een samenvatting is <a href="http://ramanalokanathan.com/amazon-aws-summit-2013-san-francisco-ca-summary/" target="_blank" rel="external">hier</a> in het te vinden</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Aanstaande woensdag op 26 maart 2014 is het zover <a href="http://amazon.com" target="_blank" rel="external">Amazon</a> gaat van start me]]>
+    </summary>
+    
+      <category term="Amazon Web Services" scheme="https://webstack.nl/tag/amazon-web-services/"/>
+    
+      <category term="AWS" scheme="https://webstack.nl/tag/aws/"/>
+    
+      <category term="AWS Summit 2014" scheme="https://webstack.nl/tag/aws-summit-2014/"/>
+    
+      <category term="Cloud" scheme="https://webstack.nl/tag/cloud/"/>
+    
+      <category term="AWS" scheme="https://webstack.nl/category/aws/"/>
+    
+      <category term="Cloud" scheme="https://webstack.nl/category/aws/cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Gratis PaaS diensten]]></title>
+    <link href="https://webstack.nl/2014/03/gratis-paas-diensten/"/>
+    <id>https://webstack.nl/2014/03/gratis-paas-diensten/</id>
+    <published>2014-03-23T11:57:29.000Z</published>
+    <updated>2014-09-18T13:10:47.000Z</updated>
+    <content type="html"><![CDATA[<p>Gratis PaaS? Ja gratis PaaS! Als je nog niet weet wat PaaS betekent is deze blog misschien niet voor je bedoeld. Als je toch graag iets met Platform-As-A-Service wilt gaan doen kan ik je adviseren om <a href="http://www.dummies.com/how-to/content/what-is-platform-as-a-service-paas-in-cloud-comput.html" target="_blank" rel="external">dit </a>even te lezen.</p>
+<p>In de wereld van de Cloud zijn eigenlijk maar drie grote spelers, namelijk <a href="http://aws.amazon.com/" target="_blank" rel="external">Amazon</a>, <a href="http://azure.com/" target="_blank" rel="external">Microsoft</a> en <a href="http://cloud.google.com/" target="_blank" rel="external">Google</a>. Amazon is er in gerold met hun Amazon Web Services (AWS) om overtollige servers te gaan verhuren. Dit bleek een ongekend succes te zijn, mede dankzij hun goede prijsmodel, en Amazon heeft hier nu groot op ingezet. Microsoft daarentegen is met hun Azure cloud meteen groots begonnen, waar het bij Amazon nog als een redelijk klein project begon hebben ze bij Microsoft hier gelijk groot op ingezet. Microsoft probeert met name de infrastructuur van grote bedrijven in de Azure cloud te krijgen en combineert dit met uitstekende integratie in het .NET framework en Windows. Google is daarentegen een andere weg bewandeld, ze zijn al erg lang bezig met de Google App Engine (GAE) en die was ook al vanaf het begin gratis maar de Google Compute Engine (GCE) is pas later beschikbaar gekomen.</p>
+<a id="more"></a>
+
+<p>Maar goed, zoals de titel al zegt gaan we het hebben over gratis PaaS. Natuurlijk je kan bij AWS een jaar lang gratis gebruik maken van hun Free Tier model, Azure biedt een trial periode aan voor een paar maanden en bij Google kan je gratis gebruik maken van GAE maar niet van GCE. Zodra deze proefperiodes zijn verstreken gaat de rekening lopen en dan kan het een duur grapje worden.</p>
+<p>We gaan het vandaag hebben over echt gratis PaaS diensten, een dienst waar jij als developer even snel een site de lucht in kan hijsen om die PoC te laten zien. Diensten die je in de beta fase gratis kunt gebruiken en daarna snel kan opschalen om het grote gebruik aan te kunnen.</p>
+<p>Ik zelf als .NET developer maak altijd graag gebruik van de diensten van AppHarbor en als ik eens de Java kant op ging dan maakte ik gebruik van de GAE. Maar wat is er nu nog meer vroeg ik me eigenlijk af?</p>
+<p>Sowieso als .NET developer mag je al snel de creditcard gaan trekken want op AppHarbor na ben ik nog geen andere .NET PaaS tegengekomen dat ook een volledig gratis plan aanbiedt.</p>
+<p>Dus ben ik vandaag een zoektocht begonnen naar gratis PaaS omgevingen waar je als developer snel naar kan deployen.</p>
+<p>Overigens heb ik alleen praktijk ervaring met AppHarbor, GAE en Pagoda Box. De overige PaaS diensten heb ik aan de hand van de documentatie bekeken en hier mijn conclusies uitgetrokken.</p>
+<h2 id="AppHarbor"><a href="http://www.appharbor.com/" target="_blank" rel="external">AppHarbor</a></h2>
+<p>Zelf gebruik ik AppHarbor al een tijdje naar tevredenheid. Je kan via Git je ASP.NET applicatie naar de servers van AppHarbor sturen. Deze wordt dan bij AppHarbor gebuild en gedeployed op door jouw gekozen lokatie, dit kan EU of US zijn.</p>
+<p>Cloud: AWS</p>
+<p><strong>Voordelen</strong></p>
+<ul>
+<li>.NET!</li>
+<li>Veel addons</li>
+<li>Gratis bandbreedte</li>
+<li>Git repository</li>
+<li>Piggyback SSL</li>
+</ul>
+<p><strong>Nadelen</strong></p>
+<ul>
+<li>Opschalen wordt meteen prijzig (begint bij 50euro)</li>
+<li>Geen eigen domein mogelijk</li>
+<li>Web worker opstarten duur 20+ seconden</li>
+</ul>
+<h2 id="Google_App_Engine"><a href="http://appengine.google.com/" target="_blank" rel="external">Google App Engine</a></h2>
+<p>Google is al sinds 2008 bezig met de Google App Engine. In tegenstelling tot andere diensten werkt Google met een 24uur quota voor gratis diensten. Zodra je wilt dat je applicaitie blijft werken nadat deze is overschreven moet je je creditcard toevoegen. Dat Google al sinds 2008 bezig is met GAE is niet echt te merken aan de features die erop zitten, van Google mag je wel verwachten dat ze het maximale uit GAE halen maar dat gebeurd niet. GAE is leuk maar als je meer wilt kom je al snel uit bij de concurentie.</p>
+<p>Cloud: Google</p>
+<p><strong>Voordelen</strong></p>
+<ul>
+<li>Java/Python/Go/PHP</li>
+<li>Google infrastructuur</li>
+<li>Eigen domein mogelijk via Google Apps</li>
+<li>24uur quota</li>
+</ul>
+<p><strong>Nadelen</strong></p>
+<ul>
+<li>Geen gratis SQL</li>
+<li>Weinig talen, PHP en Go zijn nog experimental</li>
+<li>Geen gratis SSL (5euro per certificaat)</li>
+<li>Niet mogelijk om zelf een regio te kiezen</li>
+</ul>
+<h2 id="Heroku"><a href="http://www.heroku.com/" target="_blank" rel="external">Heroku</a></h2>
+<p>Heroku is een van de eerste PaaS platformen, ze bestaan al sinds 2007 en in tegenstelling tot GAE is het wel echt een volwassen platform. Ze begonnen met Ruby maar bieden nu een meervoud van talen aan.</p>
+<p>Cloud: AWS</p>
+<p><strong>Voordelen</strong></p>
+<ul>
+<li>Java/Node/Ruby/Python</li>
+<li>Gratis PostgreSQL</li>
+<li>Gratis bandbreedte (tot 2TB/maand)</li>
+<li>Eigen domein mogelijk</li>
+<li>.NET mogelijk via Mono!</li>
+</ul>
+<p><strong>Nadelen</strong></p>
+<ul>
+<li>SSL kost 20 euro per maand</li>
+</ul>
+<h2 id="Pagoda_Box"><a href="https://pagodabox.com/" target="_blank" rel="external">Pagoda Box</a></h2>
+<p>Over Pagoda Box kan ik kort en krachtig zijn. Zoek je een PHP PaaS? Ga dan voor PB! Ze bieden alleen PHP aan maar blinken daar wel in uit. Onder andere deze blog draait op Pagoda Box.</p>
+<p>Cloud: SoftLayer</p>
+<p><strong>Voordelen</strong></p>
+<ul>
+<li>PHP</li>
+<li>Gratis eigendomein</li>
+<li>Gratis SSL</li>
+<li>Gratis background worker</li>
+<li>Gratis bandbreedte</li>
+<li>Git repositrory</li>
+<li>Mooie interface</li>
+</ul>
+<p><strong>Nadelen</strong></p>
+<ul>
+<li>Alleen PHP</li>
+<li>Database alleen via een tunnel</li>
+</ul>
+<h2 id="Redhat_OpenShift_Online"><a href="http://openshift.com/" target="_blank" rel="external">Redhat OpenShift Online</a></h2>
+<p>Redhat OpenShift Online is gebaseerd op Redhat’s openshift technologie. Openshift zorgt er voor dat erg veel talen ondersteund worden en dat is ook te zien. Ze bieden 16 verschillende ‘gears’ aan, van PHP tot aan SQL, welke je dan aan je applicatie kan koppelen.</p>
+<p>Cloud: AWS</p>
+<p><strong>Voordelen</strong></p>
+<ul>
+<li>Veel keuze door het OpenShift platform</li>
+<li>Gratis domein</li>
+<li>Gratis SSL</li>
+<li>Gratis bandbreedte</li>
+<li>Bij het koppelen van je creditcard nog meer gratis features</li>
+</ul>
+<p><strong>Nadelen</strong></p>
+<ul>
+<li>Maximaal 3 gears</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Gratis PaaS? Ja gratis PaaS! Als je nog niet weet wat PaaS betekent is deze blog misschien niet voor je bedoeld. Als je toch graag iets met Platform-As-A-Service wilt gaan doen kan ik je adviseren om <a href="http://www.dummies.com/how-to/content/what-is-platform-as-a-service-paas-in-cloud-comput.html" target="_blank" rel="external">dit </a>even te lezen.</p>
+<p>In de wereld van de Cloud zijn eigenlijk maar drie grote spelers, namelijk <a href="http://aws.amazon.com/" target="_blank" rel="external">Amazon</a>, <a href="http://azure.com/" target="_blank" rel="external">Microsoft</a> en <a href="http://cloud.google.com/" target="_blank" rel="external">Google</a>. Amazon is er in gerold met hun Amazon Web Services (AWS) om overtollige servers te gaan verhuren. Dit bleek een ongekend succes te zijn, mede dankzij hun goede prijsmodel, en Amazon heeft hier nu groot op ingezet. Microsoft daarentegen is met hun Azure cloud meteen groots begonnen, waar het bij Amazon nog als een redelijk klein project begon hebben ze bij Microsoft hier gelijk groot op ingezet. Microsoft probeert met name de infrastructuur van grote bedrijven in de Azure cloud te krijgen en combineert dit met uitstekende integratie in het .NET framework en Windows. Google is daarentegen een andere weg bewandeld, ze zijn al erg lang bezig met de Google App Engine (GAE) en die was ook al vanaf het begin gratis maar de Google Compute Engine (GCE) is pas later beschikbaar gekomen.</p>
+]]>
+    
+    </summary>
+    
+      <category term="Amazon" scheme="https://webstack.nl/tag/amazon/"/>
+    
+      <category term="AppHarbor" scheme="https://webstack.nl/tag/appharbor/"/>
+    
+      <category term="AWS" scheme="https://webstack.nl/tag/aws/"/>
+    
+      <category term="Azure" scheme="https://webstack.nl/tag/azure/"/>
+    
+      <category term="Google App Engine" scheme="https://webstack.nl/tag/google-app-engine/"/>
+    
+      <category term="Heroku" scheme="https://webstack.nl/tag/heroku/"/>
+    
+      <category term="Microsoft" scheme="https://webstack.nl/tag/microsoft/"/>
+    
+      <category term="OpenShift" scheme="https://webstack.nl/tag/openshift/"/>
+    
+      <category term="PaaS" scheme="https://webstack.nl/tag/paas/"/>
+    
+      <category term="Pagoda Box" scheme="https://webstack.nl/tag/pagoda-box/"/>
+    
+      <category term="Platform-As-A-Service" scheme="https://webstack.nl/tag/platform-as-a-service/"/>
+    
+      <category term="Cloud" scheme="https://webstack.nl/category/cloud/"/>
+    
+      <category term="Platform-As-A-Service" scheme="https://webstack.nl/category/cloud/platform-as-a-service/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Korting op elektronische Microsoft boeken!]]></title>
+    <link href="https://webstack.nl/2014/03/korting-op-elektronische-microsoft-boeken/"/>
+    <id>https://webstack.nl/2014/03/korting-op-elektronische-microsoft-boeken/</id>
+    <published>2014-03-23T10:33:57.000Z</published>
+    <updated>2014-09-19T18:28:21.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://microsoft.com" target="_blank" rel="external">Microsoft</a> gaat weg bij de ebook store van O’Reilly. Daarom biedt de online store van O’Reilly nu alle Microsoft ebooks met 60% korting aan!</p>
+<p>Hierdoor je kan je nu bijvoorbeeld de drie exam reference boeken voor MCSD voor 3x $12,80 kopen.</p>
+<p>Bekijk de deals in de O’reilly store <a href="http://shop.oreilly.com/category/deals/farewell-microsoft-press.do" target="_blank" rel="external">hier </a> en gebruik de code <strong>WKFAREW. </strong>De actie loopt tot en met 26 maart 2014!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="http://microsoft.com" target="_blank" rel="external">Microsoft</a> gaat weg bij de ebook store van O’Reilly. Daarom biedt de onl]]>
+    </summary>
+    
+      <category term="Deals" scheme="https://webstack.nl/category/deals/"/>
+    
+      <category term="Ebooks" scheme="https://webstack.nl/category/deals/ebooks/"/>
+    
+  </entry>
+  
+</feed>

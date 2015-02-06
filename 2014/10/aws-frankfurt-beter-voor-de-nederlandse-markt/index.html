@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>AWS Frankfurt, beter voor de Nederlandse markt? | Webstack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8">
+  <meta name="description" content="Afgelopen maandag kondigde Amazon aan dat ze per direct Frankfurt als locatie hebben toegevoegd aan hun AWS infrastructuur. Tot voorheen was Ierland de enige PoP van AWS voor Europa en ook voor Afrika">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS Frankfurt, beter voor de Nederlandse markt?">
+<meta property="og:url" content="https://webstack.nl/2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/">
+<meta property="og:site_name" content="Webstack">
+<meta property="og:description" content="Afgelopen maandag kondigde Amazon aan dat ze per direct Frankfurt als locatie hebben toegevoegd aan hun AWS infrastructuur. Tot voorheen was Ierland de enige PoP van AWS voor Europa en ook voor Afrika">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AWS Frankfurt, beter voor de Nederlandse markt?">
+<meta name="twitter:description" content="Afgelopen maandag kondigde Amazon aan dat ze per direct Frankfurt als locatie hebben toegevoegd aan hun AWS infrastructuur. Tot voorheen was Ierland de enige PoP van AWS voor Europa en ook voor Afrika">
+<meta name="twitter:creator" content="@webstack_nl">
+
+  
+    <link rel="alternative" href="/feed/" title="Webstack" type="application/atom+xml">
+  
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Webstack</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog over vanalles wat met software te maken heeft</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/feed/" title="RSS Feed"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:https://webstack.nl"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-aws-frankfurt-beter-voor-de-nederlandse-markt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/" class="article-date">
+  <time datetime="2014-10-25T08:05:29.000Z" itemprop="datePublished">okt. 25 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/category/aws/">AWS</a>►<a class="article-category-link" href="/category/aws/cloud/">Cloud</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AWS Frankfurt, beter voor de Nederlandse markt?
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+        <p>Afgelopen maandag <a href="https://aws.amazon.com/blogs/aws/aws-region-germany/" target="_blank" rel="external">kondigde</a> Amazon aan dat ze per direct Frankfurt als locatie hebben toegevoegd aan hun AWS infrastructuur. Tot voorheen was Ierland de enige PoP van AWS voor Europa en ook voor Afrika was Ierland het dichtst bijzijnde. Goed nieuws voor ons Europeanen dus die nu de keuzen hebben uit twee PoPś. Helemaal voor Nederland zou je denken omdat wij hemelsbreed maar 360km van Frankfurt verwijderd zijn in plaats van de 760km van Dublin (vanaf Amsterdam). Klinkt alsof we allemaal van Dublin naar Frankfurt moeten overstappen dus. Meten is weten en daarom een kleine benchmark welke AWS locatie nu het snelste is voor Nederland.</p>
+<a id="more"></a>
+
+<p>Ik heb voor de test een t2.medium instance in zowel Ierland als Frankfurt opgezet en als test locaties mijn 90/9mbit Ziggo verbinding en een <a href="https://www.digitalocean.com/?refcode=1fbe2ead8d3e" target="_blank" rel="external">DigitalOcean</a> droplet gebruikt. Om de maximale snelheid van mijn DigitalOcean droplet te testen heb ik de LeaseWebś filemirror gebruikt. Overigens heeft zowel Ziggo als DigitalOcean peering met Amazon op de AMSIX. De verbindingen van Ierland en Frankfurt maken beiden gebruik van deze peering.</p>
+<p>Ping tijden:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">|         	| Ierland  	| Frankfurt 	|</span></div><div class="line"><span class="string">|---------	|----------	|-----------	|</span></div><div class="line"><span class="string">| Ziggo   	| 31.672ms 	| 33.036ms  	|</span></div><div class="line"><span class="string">| DO AMS3 	| 21.626ms 	| 18.206ms  	|</span></div></pre></td></tr></table></figure>
+
+<p>Speedtest:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">|</span>         <span class="comment">|</span> <span class="comment">Ierland</span>   <span class="comment">|</span> <span class="comment">Frankfurt</span> <span class="comment">|</span> <span class="comment">LeaseWeb</span> <span class="comment">mirror</span> <span class="comment">|</span></div><div class="line"><span class="comment">|</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">|</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">|</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">|</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">|</span></div><div class="line"><span class="comment">|</span> <span class="comment">Ziggo</span>   <span class="comment">|</span> <span class="comment">9</span><span class="string">.</span><span class="comment">9MB/s</span>   <span class="comment">|</span> <span class="comment">9</span><span class="string">.</span><span class="comment">8MB/s</span>   <span class="comment">|</span> <span class="comment">10</span><span class="string">.</span><span class="comment">1MB/s</span>        <span class="comment">|</span></div><div class="line"><span class="comment">|</span> <span class="comment">DO</span> <span class="comment">AMS3</span> <span class="comment">|</span> <span class="comment">49</span><span class="string">.</span><span class="comment">28MB/s</span> <span class="comment">|</span> <span class="comment">43</span><span class="string">.</span><span class="comment">23MB/s</span> <span class="comment">|</span> <span class="comment">103</span><span class="string">.</span><span class="comment">1MB/s</span>       <span class="comment">|</span></div></pre></td></tr></table></figure>
+
+<p>`<br>Traceroute (hops):</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">|         | Ierland | Frankfurt |</span></div><div class="line"><span class="string">|---------|---------|-----------|</span></div><div class="line"><span class="string">| Ziggo   | 10 hops | 11 hops   |</span></div><div class="line"><span class="string">| DO AMS3 | 10 hops | 11 hops   |</span></div></pre></td></tr></table></figure>
+
+<p>Uit deze snelle benchmark kan je concluderen dat de nieuwe locatie van AWS in Frnankfurt de verwachtingen niet kan waar maken. Waar je zou verwachten dat deze juist sneller is voor Nederland ziet het er uit dat Frankfurt toch langzamer is dan Ierland. Frankfurt zal dus meer een voordeel opleveren voor Oost Europa dan voor Nederland.</p>
+
+      
+    </div>
+                
+    <footer class="article-footer">
+      <a data-url="https://webstack.nl/2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/" data-id="kbff8gb9lelvmpyz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/aws/">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/amazon-web-services/">Amazon Web Services</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/cloud/">Cloud</a></li></ul>
+
+    </footer>
+
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/visual-studio-community-2013-gratis-en-volledig/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Visual Studio Community 2013, gratis en volledig
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/09/asp-net-vnext-community-standup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ASP.NET vNext community standup</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/asp-net-vnext/">ASP.NET vNext</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/asp-net-vnext/coding/">Coding</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/asp-net-vnext/coding/microsoft/">Microsoft</a><span class="category-list-count">5</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/aws/">AWS</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/aws/cloud/">Cloud</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/cloud/">Cloud</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/cloud/platform-as-a-service/">Platform-As-A-Service</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/coding/">Coding</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/coding/whatsapp/">WhatsApp</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/content-delivery-networks/">Content Delivery Networks</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/deals/">Deals</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/deals/ebooks/">Ebooks</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/microsoft/">Microsoft</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/category/veiligheid/">Veiligheid</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tag/-net/" style="font-size: 20.00px;">.NET</a><a href="/tag/asp-net/" style="font-size: 15.71px;">ASP.NET</a><a href="/tag/aws/" style="font-size: 12.86px;">AWS</a><a href="/tag/aws-summit-2014/" style="font-size: 10.00px;">AWS Summit 2014</a><a href="/tag/amazon/" style="font-size: 10.00px;">Amazon</a><a href="/tag/amazon-web-services/" style="font-size: 11.43px;">Amazon Web Services</a><a href="/tag/appharbor/" style="font-size: 10.00px;">AppHarbor</a><a href="/tag/azure/" style="font-size: 10.00px;">Azure</a><a href="/tag/bug/" style="font-size: 10.00px;">Bug</a><a href="/tag/build-2014/" style="font-size: 10.00px;">Build 2014</a><a href="/tag/c/" style="font-size: 18.57px;">C#</a><a href="/tag/cdn/" style="font-size: 11.43px;">CDN</a><a href="/tag/cloud/" style="font-size: 11.43px;">Cloud</a><a href="/tag/cloudflare/" style="font-size: 11.43px;">CloudFlare</a><a href="/tag/content-delivery-network/" style="font-size: 11.43px;">Content Delivery Network</a><a href="/tag/github/" style="font-size: 14.29px;">Github</a><a href="/tag/google-app-engine/" style="font-size: 10.00px;">Google App Engine</a><a href="/tag/heartbeat/" style="font-size: 10.00px;">Heartbeat</a><a href="/tag/heartbleed/" style="font-size: 10.00px;">Heartbleed</a><a href="/tag/heroku/" style="font-size: 12.86px;">Heroku</a><a href="/tag/incapsula/" style="font-size: 11.43px;">Incapsula</a><a href="/tag/katana/" style="font-size: 12.86px;">Katana</a><a href="/tag/linux/" style="font-size: 10.00px;">Linux</a><a href="/tag/microsoft/" style="font-size: 17.14px;">Microsoft</a><a href="/tag/mono/" style="font-size: 11.43px;">Mono</a><a href="/tag/nancy/" style="font-size: 11.43px;">Nancy</a><a href="/tag/openssl/" style="font-size: 10.00px;">OpenSSL</a><a href="/tag/openshift/" style="font-size: 10.00px;">OpenShift</a><a href="/tag/owin/" style="font-size: 14.29px;">Owin</a><a href="/tag/paas/" style="font-size: 10.00px;">PaaS</a><a href="/tag/page-speed/" style="font-size: 10.00px;">Page Speed</a><a href="/tag/pagoda-box/" style="font-size: 10.00px;">Pagoda Box</a><a href="/tag/platform-as-a-service/" style="font-size: 10.00px;">Platform-As-A-Service</a><a href="/tag/security/" style="font-size: 10.00px;">Security</a><a href="/tag/signalr/" style="font-size: 10.00px;">SignalR</a><a href="/tag/visual-studio/" style="font-size: 10.00px;">Visual Studio</a><a href="/tag/visual-studio-community-2013/" style="font-size: 10.00px;">Visual Studio Community 2013</a><a href="/tag/whatsapp/" style="font-size: 11.43px;">WhatsApp</a><a href="/tag/whatsapp-doorsturen/" style="font-size: 10.00px;">WhatsApp doorsturen</a><a href="/tag/windows/" style="font-size: 10.00px;">Windows</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archief</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/11/nieuwe-features-in-c-6-0/">Nieuwe features in C# 6.0</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/open-source-net/">Open source .NET!</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/visual-studio-community-2013-gratis-en-volledig/">Visual Studio Community 2013, gratis en volledig</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/">AWS Frankfurt, beter voor de Nederlandse markt?</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/asp-net-vnext-community-standup/">ASP.NET vNext community standup</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Matthijs B.<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49291515-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
+   <link rel="stylesheet" href="/css/all.css" type="text/css">
+
+<script src="/js/all.js" type="text/javascript"></script>

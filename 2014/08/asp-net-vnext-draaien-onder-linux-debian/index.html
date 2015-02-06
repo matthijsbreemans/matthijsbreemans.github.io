@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>ASP.NET vNext draaien onder Linux / Debian | Webstack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8">
+  <meta name="description" content="Eerder heb ik al een uitleg gegeven over wat ASP.NET vNext precies is. Nu beloofd Microsoft goede cross platform compatibiliteit, met Windows, Linux en OS X en was ik benieuwd hoe goed dit nu eigenlij">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASP.NET vNext draaien onder Linux / Debian">
+<meta property="og:url" content="https://webstack.nl/2014/08/asp-net-vnext-draaien-onder-linux-debian/">
+<meta property="og:site_name" content="Webstack">
+<meta property="og:description" content="Eerder heb ik al een uitleg gegeven over wat ASP.NET vNext precies is. Nu beloofd Microsoft goede cross platform compatibiliteit, met Windows, Linux en OS X en was ik benieuwd hoe goed dit nu eigenlij">
+<meta property="og:image" content="https://i.imgur.com/39vJi3o.png">
+<meta property="og:image" content="https://i.imgur.com/wMy4EUA.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ASP.NET vNext draaien onder Linux / Debian">
+<meta name="twitter:description" content="Eerder heb ik al een uitleg gegeven over wat ASP.NET vNext precies is. Nu beloofd Microsoft goede cross platform compatibiliteit, met Windows, Linux en OS X en was ik benieuwd hoe goed dit nu eigenlij">
+<meta name="twitter:creator" content="@webstack_nl">
+
+  
+    <link rel="alternative" href="/feed/" title="Webstack" type="application/atom+xml">
+  
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Webstack</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Blog over vanalles wat met software te maken heeft</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/feed/" title="RSS Feed"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:https://webstack.nl"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-asp-net-vnext-draaien-onder-linux-debian" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/asp-net-vnext-draaien-onder-linux-debian/" class="article-date">
+  <time datetime="2014-08-26T08:57:54.000Z" itemprop="datePublished">aug. 26 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/category/asp-net-vnext/">ASP.NET vNext</a>►<a class="article-category-link" href="/category/asp-net-vnext/coding/">Coding</a>►<a class="article-category-link" href="/category/asp-net-vnext/coding/microsoft/">Microsoft</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ASP.NET vNext draaien onder Linux / Debian
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+        <p><a href="https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/" target="_blank" rel="external">Eerder</a> heb ik al een uitleg gegeven over wat ASP.NET vNext precies is. Nu beloofd Microsoft goede cross platform compatibiliteit, met Windows, Linux en OS X en was ik benieuwd hoe goed dit nu eigenlijk werkt op Linux. Ik heb hiervoor een Debian Wheezy installatie gebruikt welke ik heb geupgrade naar Debian Sid, of tewel Debian testing.</p>
+<p><a id="more"></a><br>Commando’s die beginnen met een # dienen uitgevoerd te worden als root of met sudo en commando’s die beginnen met $ dienen als een normale users uitgevoerd te worden</p>
+<p>Upgrade /etc/apt/sources.list naar Sid door alles te vervangen met het volgende:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">deb <span class="keyword">http</span>://<span class="keyword">ftp</span>.nl.debian.org/debian unstable main contrib non-free</div><div class="line">deb-src <span class="keyword">http</span>://<span class="keyword">ftp</span>.nl.debian.org/debian unstable main contrib non-free</div></pre></td></tr></table></figure>
+
+<p>Voer daarna de upgrade uit met:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#apt-<span class="built_in">get</span> <span class="keyword">update</span> &amp;&amp; apt-<span class="built_in">get</span> dist-upgrade</div></pre></td></tr></table></figure>
+
+<p>Installeer wat benodigd heden die we later nodig hebben:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#apt-get install sudo unzip curl autoconf libtool gettext build-essential git</span></div></pre></td></tr></table></figure>
+
+<p>Installeer Mono 3.6.0 vanuit de repository van Xamarin</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">#wget</span> http:<span class="comment">//download.mono-project.com/repo/xamarin.gpg</span></div><div class="line"><span class="variable">#apt</span><span class="attribute">-key</span> add xamarin<span class="built_in">.</span>gpg</div><div class="line"><span class="variable">#echo</span> <span class="string">"deb http://download.mono-project.com/repo/debian wheezy main"</span> <span class="subst">&</span><span class="literal">gt</span>; /etc/apt/sources<span class="built_in">.</span><span class="built_in">list</span><span class="built_in">.</span>d/mono<span class="attribute">-xamarin</span><span class="built_in">.</span><span class="built_in">list</span></div><div class="line"></div><div class="line"><span class="variable">#apt</span><span class="attribute">-get</span> install mono<span class="attribute">-complete</span></div></pre></td></tr></table></figure>
+
+<p>Om ASP.NET vNext te draaien heb je minstens Mono 3.6.1 nodig, echte zit deze nu nog niet in de repository dus moeten we Mono van source compilen. Als je Mono wilt compilen heb je Mono zelf nodig dus daarom hebben we die net eerst geinstalleerd.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#git clone git://github.com/mono/mono.git</span></div><div class="line"><span class="preprocessor">#cd mono</span></div><div class="line"><span class="preprocessor">#./autogen.sh --prefix=/usr/local</span></div><div class="line"><span class="preprocessor">#make</span></div><div class="line"><span class="preprocessor">#make install</span></div></pre></td></tr></table></figure>
+
+<p>Als het goed is dan is nu de laatste versie van Mono geinstallerd, dit kan je controleren door mono -V in te typen</p>
+<p>Standaard worden er geen certificaten ondersteund in Mono, deze dienen we dus te gaan installeren:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">#certmgr</span> <span class="attribute">-ssl</span> <span class="attribute">-m</span> https:<span class="comment">//go.microsoft.com&lt;</span></div><div class="line"><span class="variable">#certmgr</span> <span class="attribute">-ssl</span> <span class="attribute">-m</span> https:<span class="comment">//nugetgallery.blob.core.windows.net</span></div><div class="line"><span class="variable">#certmgr</span> <span class="attribute">-ssl</span> <span class="attribute">-m</span> https:<span class="comment">//nuget.org</span></div><div class="line"><span class="variable">#certmgr</span> <span class="attribute">-ssl</span> <span class="attribute">-m</span> https:<span class="comment">//www.myget.org</span></div><div class="line"><span class="variable">$mozroots</span> <span class="subst">--</span><span class="keyword">import</span> <span class="subst">--</span>sync</div></pre></td></tr></table></figure>
+
+<p>Nu gaan we ASP.NET vNext installeren, omdat ASP.NET vNext nog in Alpha/Beta fase is willen we graag de laatste versie (alpha4 op dit moment)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo curl http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/aspnet/Home/dev/kvminstall.<span class="keyword">sh</span> | <span class="keyword">sh</span> &amp;&amp; <span class="keyword">source</span> ~/.kre/kvm/kvm.<span class="keyword">sh</span></div></pre></td></tr></table></figure>
+
+<p>Als je toch liever een meer stabiele versie wilt kan je de master branch (alpha3 op dit moment) installeren met het volgende commando</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo curl http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/aspnet/Home/master/kvminstall.<span class="keyword">sh</span> | <span class="keyword">sh</span> &amp;&amp; <span class="keyword">source</span>~/.kre/kvm/kvm.<span class="keyword">sh</span></div></pre></td></tr></table></figure>
+
+<p>ASP.NET vNext is nu geinstalleerd en we gaan met de K Package Manager (kpm) de laatste packages ophalen.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$kvm</span> upgrade</div></pre></td></tr></table></figure>
+
+<p>In principe kan je nu gewoon een ASP.NET project aanmaken zoals bijvoorbeeld hier beschreven staat.</p>
+<p>Maar we gaan nog een stapje verder, er is namelijk een tool genaamd Yeoman welke het mogelijk maakt om eenvoudig project templates aan te maken. Voor Yeoman is wel Node.js nodig dus deze gaan we ook installeren</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#curl -sL https://deb.nodesource.com/setup | bash -</span></div><div class="line"><span class="preprocessor">#apt-get install nodejs</span></div><div class="line"><span class="preprocessor">#npm install -g yo</span></div></pre></td></tr></table></figure>
+
+<p>Yeoman is nu geinstalleerd en we installeren het template voor vNext</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#npm install -g generator-aspnet</span></div></pre></td></tr></table></figure>
+
+<p>Yeoman is nu geinstalleerd met de vNext project templates.</p>
+<p>Omdat httpapi.dll en Kestrel nog geen native builds voor Linux hebben kunnen we van deze templates alleen de Consoleapplication draaien.</p>
+<p>Start nu Yeoman op met yo en kies de Console Application template</p>
+<p><a href="http://imgur.com/39vJi3o" target="_blank" rel="external"><img src="https://i.imgur.com/39vJi3o.png" alt="" title="Hosted by imgur.com"></a><br>Het kan zijn dat er wat error’s komen bij een kpm restore omdat kpm de NuGet.config nog niet helemaal goed kan lezen onder Linux, dit kan je oplossen door het volgende commando te draaien</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$kpm</span> restore -s <span class="symbol">https:</span>/<span class="regexp">/www.myget.org/</span><span class="constant">F</span>/aspnetmaster/ -f <span class="symbol">https:</span>/<span class="regexp">/nuget.org/api</span><span class="regexp">/v2/</span></div></pre></td></tr></table></figure>
+
+<p>Ga nu naar de ConsoleApplication map die zojuist is aangemaakt en type</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$k</span> run</div></pre></td></tr></table></figure>
+
+<p>ASP.NET vNext zal nu het project.json project bestand lezen en alle dependencies inladen en doormiddel van de RyuJIT Program.cs draaien</p>
+<p>Als je nu bijvoorbeeld de volgende regel aan je Program.cs toevoegt zal je zien dat het ook echt onder Linux draait</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Console.WriteLine(string.<span class="keyword">Format</span>(<span class="string">"Currently running {0}"</span>, <span class="keyword">Environment</span>.OSVersion));</div></pre></td></tr></table></figure>
+
+<p><a href="http://imgur.com/wMy4EUA" target="_blank" rel="external"><img src="https://i.imgur.com/wMy4EUA.png" alt="" title="Hosted by imgur.com"></a><br>Conclusie van ASP.NET vNext, het heeft erg veel potentie maar het is nog wel in alpha fase, verwacht dus dat er een hoop dingen nog niet werken.</p>
+<p>Just-In-Time compiling van .NET onder Linux, wie had dat ooit geacht, ik niet in ieder geval!</p>
+
+      
+    </div>
+                
+    <footer class="article-footer">
+      <a data-url="https://webstack.nl/2014/08/asp-net-vnext-draaien-onder-linux-debian/" data-id="2ujjqxks2bpsdr23" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/-net/">.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/asp-net/">ASP.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/c/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/debian/">debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vnext/">vNext</a></li></ul>
+
+    </footer>
+
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/08/asp-net-vnext-k-kre-kpm-kvm-wat-het-allemaal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ASP.NET vNext, K KRE KPM KVM, wat is het allemaal?
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ASP.NET vNext, wat is het en wat doet het?</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/asp-net-vnext/">ASP.NET vNext</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/asp-net-vnext/coding/">Coding</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/asp-net-vnext/coding/microsoft/">Microsoft</a><span class="category-list-count">5</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/aws/">AWS</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/aws/cloud/">Cloud</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/cloud/">Cloud</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/cloud/platform-as-a-service/">Platform-As-A-Service</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/coding/">Coding</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/coding/whatsapp/">WhatsApp</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/content-delivery-networks/">Content Delivery Networks</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/deals/">Deals</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/category/deals/ebooks/">Ebooks</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/category/microsoft/">Microsoft</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/category/veiligheid/">Veiligheid</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tag/-net/" style="font-size: 20.00px;">.NET</a><a href="/tag/asp-net/" style="font-size: 15.71px;">ASP.NET</a><a href="/tag/aws/" style="font-size: 12.86px;">AWS</a><a href="/tag/aws-summit-2014/" style="font-size: 10.00px;">AWS Summit 2014</a><a href="/tag/amazon/" style="font-size: 10.00px;">Amazon</a><a href="/tag/amazon-web-services/" style="font-size: 11.43px;">Amazon Web Services</a><a href="/tag/appharbor/" style="font-size: 10.00px;">AppHarbor</a><a href="/tag/azure/" style="font-size: 10.00px;">Azure</a><a href="/tag/bug/" style="font-size: 10.00px;">Bug</a><a href="/tag/build-2014/" style="font-size: 10.00px;">Build 2014</a><a href="/tag/c/" style="font-size: 18.57px;">C#</a><a href="/tag/cdn/" style="font-size: 11.43px;">CDN</a><a href="/tag/cloud/" style="font-size: 11.43px;">Cloud</a><a href="/tag/cloudflare/" style="font-size: 11.43px;">CloudFlare</a><a href="/tag/content-delivery-network/" style="font-size: 11.43px;">Content Delivery Network</a><a href="/tag/github/" style="font-size: 14.29px;">Github</a><a href="/tag/google-app-engine/" style="font-size: 10.00px;">Google App Engine</a><a href="/tag/heartbeat/" style="font-size: 10.00px;">Heartbeat</a><a href="/tag/heartbleed/" style="font-size: 10.00px;">Heartbleed</a><a href="/tag/heroku/" style="font-size: 12.86px;">Heroku</a><a href="/tag/incapsula/" style="font-size: 11.43px;">Incapsula</a><a href="/tag/katana/" style="font-size: 12.86px;">Katana</a><a href="/tag/linux/" style="font-size: 10.00px;">Linux</a><a href="/tag/microsoft/" style="font-size: 17.14px;">Microsoft</a><a href="/tag/mono/" style="font-size: 11.43px;">Mono</a><a href="/tag/nancy/" style="font-size: 11.43px;">Nancy</a><a href="/tag/openssl/" style="font-size: 10.00px;">OpenSSL</a><a href="/tag/openshift/" style="font-size: 10.00px;">OpenShift</a><a href="/tag/owin/" style="font-size: 14.29px;">Owin</a><a href="/tag/paas/" style="font-size: 10.00px;">PaaS</a><a href="/tag/page-speed/" style="font-size: 10.00px;">Page Speed</a><a href="/tag/pagoda-box/" style="font-size: 10.00px;">Pagoda Box</a><a href="/tag/platform-as-a-service/" style="font-size: 10.00px;">Platform-As-A-Service</a><a href="/tag/security/" style="font-size: 10.00px;">Security</a><a href="/tag/signalr/" style="font-size: 10.00px;">SignalR</a><a href="/tag/visual-studio/" style="font-size: 10.00px;">Visual Studio</a><a href="/tag/visual-studio-community-2013/" style="font-size: 10.00px;">Visual Studio Community 2013</a><a href="/tag/whatsapp/" style="font-size: 11.43px;">WhatsApp</a><a href="/tag/whatsapp-doorsturen/" style="font-size: 10.00px;">WhatsApp doorsturen</a><a href="/tag/windows/" style="font-size: 10.00px;">Windows</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archief</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/11/nieuwe-features-in-c-6-0/">Nieuwe features in C# 6.0</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/open-source-net/">Open source .NET!</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/visual-studio-community-2013-gratis-en-volledig/">Visual Studio Community 2013, gratis en volledig</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/">AWS Frankfurt, beter voor de Nederlandse markt?</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/asp-net-vnext-community-standup/">ASP.NET vNext community standup</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Matthijs B.<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49291515-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
+   <link rel="stylesheet" href="/css/all.css" type="text/css">
+
+<script src="/js/all.js" type="text/javascript"></script>
