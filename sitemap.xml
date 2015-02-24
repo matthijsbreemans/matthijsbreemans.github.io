@@ -2,596 +2,596 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://webstack.nl2014/03/aws-summit-2014-komt-er-aan/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/03/aws-summit-2014-komt-er-aan/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/03/gratis-content-delivery-networks-welk-cdn-is-de-beste/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/03/gratis-content-delivery-networks-welk-cdn-is-de-beste/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/03/gratis-paas-diensten/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/03/gratis-paas-diensten/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/03/korting-op-elektronische-microsoft-boeken/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/03/korting-op-elektronische-microsoft-boeken/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/04/cloudflare-vs-incapsula-site-optimalisatie/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/04/cloudflare-vs-incapsula-site-optimalisatie/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/04/het-nancy-webframework-hosten-op-heroku-dankzij-owin/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/04/het-nancy-webframework-hosten-op-heroku-dankzij-owin/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/04/microsoft-build-2014-de-korte-versie/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/04/microsoft-build-2014-de-korte-versie/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/04/self-hosted-signalr-met-owin/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/04/self-hosted-signalr-met-owin/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/04/wat-is-de-openssl-heartbleed-bug/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/04/wat-is-de-openssl-heartbleed-bug/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/05/razor-view-engine-in-nancy/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/05/razor-view-engine-in-nancy/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/05/whatsapp-doorsturen/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/05/whatsapp-doorsturen/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/08/asp-net-vnext-draaien-onder-linux-debian/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2014/08/asp-net-vnext-draaien-onder-linux-debian/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/08/asp-net-vnext-k-kre-kpm-kvm-wat-het-allemaal/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2014/08/asp-net-vnext-k-kre-kpm-kvm-wat-het-allemaal/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/09/asp-net-vnext-community-standup/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2014/09/asp-net-vnext-community-standup/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2014/10/aws-frankfurt-beter-voor-de-nederlandse-markt/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/11/nieuwe-features-in-c-6-0/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2014/11/nieuwe-features-in-c-6-0/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/11/open-source-net/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2014/11/open-source-net/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2014/11/visual-studio-community-2013-gratis-en-volledig/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2014/11/visual-studio-community-2013-gratis-en-volledig/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2015/02/leesvoer/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2015/02/leesvoer/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl2015/02/visual-studio-2015-ctp6-is-uit/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/2015/02/visual-studio-2015-ctp6-is-uit/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/03/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/03/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/04/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/04/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/05/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/05/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/08/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/08/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/09/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/09/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/10/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/10/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/11/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/11/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/</loc>
+  <lastmod>2015-02-24T09:40:01.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2014/page/2/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2014/page/2/</loc>
+  <lastmod>2015-02-24T09:40:01.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2015/02/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2015/02/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/2015/</loc>
-  <lastmod>2015-02-24T08:12:28.000Z</lastmod>
+  <loc>https://webstack.nl/archives/2015/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/</loc>
-  <lastmod>2015-02-24T08:12:27.000Z</lastmod>
+  <loc>https://webstack.nl/archives/</loc>
+  <lastmod>2015-02-24T09:40:01.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/page/2/</loc>
-  <lastmod>2015-02-24T08:12:27.000Z</lastmod>
+  <loc>https://webstack.nl/archives/page/2/</loc>
+  <lastmod>2015-02-24T09:40:01.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlarchives/page/3/</loc>
-  <lastmod>2015-02-24T08:12:27.000Z</lastmod>
+  <loc>https://webstack.nl/archives/page/3/</loc>
+  <lastmod>2015-02-24T09:40:01.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/asp-net-vnext/coding/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/asp-net-vnext/coding/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/asp-net-vnext/coding/microsoft/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/asp-net-vnext/coding/microsoft/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/asp-net-vnext/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/asp-net-vnext/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/aws/cloud/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/aws/cloud/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/aws/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/aws/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/cloud/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/cloud/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/cloud/platform-as-a-service/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/cloud/platform-as-a-service/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/coding/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/coding/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/coding/whatsapp/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/coding/whatsapp/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/content-delivery-networks/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/content-delivery-networks/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/deals/ebooks/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/deals/ebooks/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/deals/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/deals/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/microsoft/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/microsoft/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlcategory/veiligheid/</loc>
-  <lastmod>2015-02-24T08:12:29.000Z</lastmod>
+  <loc>https://webstack.nl/category/veiligheid/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlfeed/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/feed/</loc>
+  <lastmod>2015-02-24T09:40:05.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nl</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/</loc>
+  <lastmod>2015-02-24T09:40:02.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlpage/2/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/page/2/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nlpage/3/</loc>
-  <lastmod>2015-02-24T08:12:30.000Z</lastmod>
+  <loc>https://webstack.nl/page/3/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/-net/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/tag/-net/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/-net/page/2/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/tag/-net/page/2/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/amazon-web-services/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/amazon-web-services/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/amazon/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/amazon/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/appharbor/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/appharbor/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/asp-net/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/tag/asp-net/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/aws-summit-2014/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/aws-summit-2014/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/aws/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/aws/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/azure/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/azure/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/bug/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/bug/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/build-2014/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/build-2014/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/c/</loc>
-  <lastmod>2015-02-24T08:12:31.000Z</lastmod>
+  <loc>https://webstack.nl/tag/c/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/cdn/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/cdn/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/cloud/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/cloud/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/cloudflare/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/cloudflare/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/coding/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/coding/</loc>
+  <lastmod>2015-02-24T09:40:05.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/content-delivery-network/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/content-delivery-network/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/debian/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/debian/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/github/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/github/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/google-app-engine/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/google-app-engine/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/heartbeat/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/heartbeat/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/heartbleed/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/heartbleed/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/heroku/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/heroku/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/incapsula/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/incapsula/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/katana/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/katana/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/leesvoer/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/leesvoer/</loc>
+  <lastmod>2015-02-24T09:40:05.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/linux/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/linux/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/microsoft/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/microsoft/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/mono/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/mono/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/nancy/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/nancy/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/openshift/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/openshift/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/openssl/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/openssl/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/owin/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/owin/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/paas/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/paas/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/page-speed/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/page-speed/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/pagoda-box/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/pagoda-box/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/platform-as-a-service/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/platform-as-a-service/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/security/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/security/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/signalr/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/signalr/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/visual-studio-community-2013/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/visual-studio-community-2013/</loc>
+  <lastmod>2015-02-24T09:40:05.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/visual-studio/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/visual-studio/</loc>
+  <lastmod>2015-02-24T09:40:05.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/vnext/</loc>
-  <lastmod>2015-02-24T08:12:32.000Z</lastmod>
+  <loc>https://webstack.nl/tag/vnext/</loc>
+  <lastmod>2015-02-24T09:40:03.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/whatsapp-doorsturen/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/whatsapp-doorsturen/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/whatsapp/</loc>
-  <lastmod>2015-02-24T08:12:34.000Z</lastmod>
+  <loc>https://webstack.nl/tag/whatsapp/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/windows/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/windows/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://webstack.nltag/yslow/</loc>
-  <lastmod>2015-02-24T08:12:33.000Z</lastmod>
+  <loc>https://webstack.nl/tag/yslow/</loc>
+  <lastmod>2015-02-24T09:40:04.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
