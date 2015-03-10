@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Blog over vanalles wat met software te maken heeft]]></subtitle>
   <link href="//feed/index.html" rel="self"/>
   <link href="https://webstack.nl/"/>
-  <updated>2015-02-24T09:40:01.446Z</updated>
+  <updated>2015-03-10T17:35:45.831Z</updated>
   <id>https://webstack.nl/</id>
   
   <author>
@@ -13,6 +13,32 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Leesvoer! deel 2]]></title>
+    <link href="https://webstack.nl/2015/03/leesvoer-deel-2/"/>
+    <id>https://webstack.nl/2015/03/leesvoer-deel-2/</id>
+    <published>2015-03-10T17:40:26.000Z</published>
+    <updated>2015-03-10T17:35:28.000Z</updated>
+    <content type="html"><![CDATA[<p>Interessante artikelen die ik de afgelopen tijd tegen kwam:</p>
+<p><a href="http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/" target="_blank" rel="external">Hoe StackExchange (van StackOverflow) hun live datacenter migratie deed</a></p>
+<p><a href="http://shmck.com/comparing-angular-1-x-2-0/" target="_blank" rel="external">Een vergelijking tussen Angular 1.x en 2.0</a></p>
+<p><a href="http://channel9.msdn.com/Shows/Edge/Docker-Machine-to-Azure-Demo" target="_blank" rel="external">Een demo van Docker op Azure draaien</a></p>
+<p><a href="http://behindthesite.com/#/" target="_blank" rel="external">BehindTheSite, altijd al benieuwd welke technieken een site gebruikt?</a></p>
+<p><a href="http://tomasp.net/blog/2015/library-frameworks/" target="_blank" rel="external">Het verschil tussen libraries en frameworks volgens Tomas Petricek</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Interessante artikelen die ik de afgelopen tijd tegen kwam:</p>
+<p><a href="http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-]]>
+    </summary>
+    
+      <category term="Leesvoer" scheme="https://webstack.nl/tag/leesvoer/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/tag/coding/"/>
+    
+      <category term="Coding" scheme="https://webstack.nl/category/coding/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Leesvoer!]]></title>
@@ -829,140 +855,6 @@
       <category term="AWS" scheme="https://webstack.nl/category/aws/"/>
     
       <category term="Cloud" scheme="https://webstack.nl/category/aws/cloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Gratis PaaS diensten]]></title>
-    <link href="https://webstack.nl/2014/03/gratis-paas-diensten/"/>
-    <id>https://webstack.nl/2014/03/gratis-paas-diensten/</id>
-    <published>2014-03-23T11:57:29.000Z</published>
-    <updated>2014-09-18T13:10:47.000Z</updated>
-    <content type="html"><![CDATA[<p>Gratis PaaS? Ja gratis PaaS! Als je nog niet weet wat PaaS betekent is deze blog misschien niet voor je bedoeld. Als je toch graag iets met Platform-As-A-Service wilt gaan doen kan ik je adviseren om <a href="http://www.dummies.com/how-to/content/what-is-platform-as-a-service-paas-in-cloud-comput.html" target="_blank" rel="external">dit </a>even te lezen.</p>
-<p>In de wereld van de Cloud zijn eigenlijk maar drie grote spelers, namelijk <a href="http://aws.amazon.com/" target="_blank" rel="external">Amazon</a>, <a href="http://azure.com/" target="_blank" rel="external">Microsoft</a> en <a href="http://cloud.google.com/" target="_blank" rel="external">Google</a>. Amazon is er in gerold met hun Amazon Web Services (AWS) om overtollige servers te gaan verhuren. Dit bleek een ongekend succes te zijn, mede dankzij hun goede prijsmodel, en Amazon heeft hier nu groot op ingezet. Microsoft daarentegen is met hun Azure cloud meteen groots begonnen, waar het bij Amazon nog als een redelijk klein project begon hebben ze bij Microsoft hier gelijk groot op ingezet. Microsoft probeert met name de infrastructuur van grote bedrijven in de Azure cloud te krijgen en combineert dit met uitstekende integratie in het .NET framework en Windows. Google is daarentegen een andere weg bewandeld, ze zijn al erg lang bezig met de Google App Engine (GAE) en die was ook al vanaf het begin gratis maar de Google Compute Engine (GCE) is pas later beschikbaar gekomen.</p>
-<a id="more"></a>
-
-<p>Maar goed, zoals de titel al zegt gaan we het hebben over gratis PaaS. Natuurlijk je kan bij AWS een jaar lang gratis gebruik maken van hun Free Tier model, Azure biedt een trial periode aan voor een paar maanden en bij Google kan je gratis gebruik maken van GAE maar niet van GCE. Zodra deze proefperiodes zijn verstreken gaat de rekening lopen en dan kan het een duur grapje worden.</p>
-<p>We gaan het vandaag hebben over echt gratis PaaS diensten, een dienst waar jij als developer even snel een site de lucht in kan hijsen om die PoC te laten zien. Diensten die je in de beta fase gratis kunt gebruiken en daarna snel kan opschalen om het grote gebruik aan te kunnen.</p>
-<p>Ik zelf als .NET developer maak altijd graag gebruik van de diensten van AppHarbor en als ik eens de Java kant op ging dan maakte ik gebruik van de GAE. Maar wat is er nu nog meer vroeg ik me eigenlijk af?</p>
-<p>Sowieso als .NET developer mag je al snel de creditcard gaan trekken want op AppHarbor na ben ik nog geen andere .NET PaaS tegengekomen dat ook een volledig gratis plan aanbiedt.</p>
-<p>Dus ben ik vandaag een zoektocht begonnen naar gratis PaaS omgevingen waar je als developer snel naar kan deployen.</p>
-<p>Overigens heb ik alleen praktijk ervaring met AppHarbor, GAE en Pagoda Box. De overige PaaS diensten heb ik aan de hand van de documentatie bekeken en hier mijn conclusies uitgetrokken.</p>
-<h2 id="AppHarbor"><a href="http://www.appharbor.com/" target="_blank" rel="external">AppHarbor</a></h2>
-<p>Zelf gebruik ik AppHarbor al een tijdje naar tevredenheid. Je kan via Git je ASP.NET applicatie naar de servers van AppHarbor sturen. Deze wordt dan bij AppHarbor gebuild en gedeployed op door jouw gekozen lokatie, dit kan EU of US zijn.</p>
-<p>Cloud: AWS</p>
-<p><strong>Voordelen</strong></p>
-<ul>
-<li>.NET!</li>
-<li>Veel addons</li>
-<li>Gratis bandbreedte</li>
-<li>Git repository</li>
-<li>Piggyback SSL</li>
-</ul>
-<p><strong>Nadelen</strong></p>
-<ul>
-<li>Opschalen wordt meteen prijzig (begint bij 50euro)</li>
-<li>Geen eigen domein mogelijk</li>
-<li>Web worker opstarten duur 20+ seconden</li>
-</ul>
-<h2 id="Google_App_Engine"><a href="http://appengine.google.com/" target="_blank" rel="external">Google App Engine</a></h2>
-<p>Google is al sinds 2008 bezig met de Google App Engine. In tegenstelling tot andere diensten werkt Google met een 24uur quota voor gratis diensten. Zodra je wilt dat je applicaitie blijft werken nadat deze is overschreven moet je je creditcard toevoegen. Dat Google al sinds 2008 bezig is met GAE is niet echt te merken aan de features die erop zitten, van Google mag je wel verwachten dat ze het maximale uit GAE halen maar dat gebeurd niet. GAE is leuk maar als je meer wilt kom je al snel uit bij de concurentie.</p>
-<p>Cloud: Google</p>
-<p><strong>Voordelen</strong></p>
-<ul>
-<li>Java/Python/Go/PHP</li>
-<li>Google infrastructuur</li>
-<li>Eigen domein mogelijk via Google Apps</li>
-<li>24uur quota</li>
-</ul>
-<p><strong>Nadelen</strong></p>
-<ul>
-<li>Geen gratis SQL</li>
-<li>Weinig talen, PHP en Go zijn nog experimental</li>
-<li>Geen gratis SSL (5euro per certificaat)</li>
-<li>Niet mogelijk om zelf een regio te kiezen</li>
-</ul>
-<h2 id="Heroku"><a href="http://www.heroku.com/" target="_blank" rel="external">Heroku</a></h2>
-<p>Heroku is een van de eerste PaaS platformen, ze bestaan al sinds 2007 en in tegenstelling tot GAE is het wel echt een volwassen platform. Ze begonnen met Ruby maar bieden nu een meervoud van talen aan.</p>
-<p>Cloud: AWS</p>
-<p><strong>Voordelen</strong></p>
-<ul>
-<li>Java/Node/Ruby/Python</li>
-<li>Gratis PostgreSQL</li>
-<li>Gratis bandbreedte (tot 2TB/maand)</li>
-<li>Eigen domein mogelijk</li>
-<li>.NET mogelijk via Mono!</li>
-</ul>
-<p><strong>Nadelen</strong></p>
-<ul>
-<li>SSL kost 20 euro per maand</li>
-</ul>
-<h2 id="Pagoda_Box"><a href="https://pagodabox.com/" target="_blank" rel="external">Pagoda Box</a></h2>
-<p>Over Pagoda Box kan ik kort en krachtig zijn. Zoek je een PHP PaaS? Ga dan voor PB! Ze bieden alleen PHP aan maar blinken daar wel in uit. Onder andere deze blog draait op Pagoda Box.</p>
-<p>Cloud: SoftLayer</p>
-<p><strong>Voordelen</strong></p>
-<ul>
-<li>PHP</li>
-<li>Gratis eigendomein</li>
-<li>Gratis SSL</li>
-<li>Gratis background worker</li>
-<li>Gratis bandbreedte</li>
-<li>Git repositrory</li>
-<li>Mooie interface</li>
-</ul>
-<p><strong>Nadelen</strong></p>
-<ul>
-<li>Alleen PHP</li>
-<li>Database alleen via een tunnel</li>
-</ul>
-<h2 id="Redhat_OpenShift_Online"><a href="http://openshift.com/" target="_blank" rel="external">Redhat OpenShift Online</a></h2>
-<p>Redhat OpenShift Online is gebaseerd op Redhat’s openshift technologie. Openshift zorgt er voor dat erg veel talen ondersteund worden en dat is ook te zien. Ze bieden 16 verschillende ‘gears’ aan, van PHP tot aan SQL, welke je dan aan je applicatie kan koppelen.</p>
-<p>Cloud: AWS</p>
-<p><strong>Voordelen</strong></p>
-<ul>
-<li>Veel keuze door het OpenShift platform</li>
-<li>Gratis domein</li>
-<li>Gratis SSL</li>
-<li>Gratis bandbreedte</li>
-<li>Bij het koppelen van je creditcard nog meer gratis features</li>
-</ul>
-<p><strong>Nadelen</strong></p>
-<ul>
-<li>Maximaal 3 gears</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Gratis PaaS? Ja gratis PaaS! Als je nog niet weet wat PaaS betekent is deze blog misschien niet voor je bedoeld. Als je toch graag iets met Platform-As-A-Service wilt gaan doen kan ik je adviseren om <a href="http://www.dummies.com/how-to/content/what-is-platform-as-a-service-paas-in-cloud-comput.html" target="_blank" rel="external">dit </a>even te lezen.</p>
-<p>In de wereld van de Cloud zijn eigenlijk maar drie grote spelers, namelijk <a href="http://aws.amazon.com/" target="_blank" rel="external">Amazon</a>, <a href="http://azure.com/" target="_blank" rel="external">Microsoft</a> en <a href="http://cloud.google.com/" target="_blank" rel="external">Google</a>. Amazon is er in gerold met hun Amazon Web Services (AWS) om overtollige servers te gaan verhuren. Dit bleek een ongekend succes te zijn, mede dankzij hun goede prijsmodel, en Amazon heeft hier nu groot op ingezet. Microsoft daarentegen is met hun Azure cloud meteen groots begonnen, waar het bij Amazon nog als een redelijk klein project begon hebben ze bij Microsoft hier gelijk groot op ingezet. Microsoft probeert met name de infrastructuur van grote bedrijven in de Azure cloud te krijgen en combineert dit met uitstekende integratie in het .NET framework en Windows. Google is daarentegen een andere weg bewandeld, ze zijn al erg lang bezig met de Google App Engine (GAE) en die was ook al vanaf het begin gratis maar de Google Compute Engine (GCE) is pas later beschikbaar gekomen.</p>
-]]>
-    
-    </summary>
-    
-      <category term="Amazon" scheme="https://webstack.nl/tag/amazon/"/>
-    
-      <category term="AppHarbor" scheme="https://webstack.nl/tag/appharbor/"/>
-    
-      <category term="AWS" scheme="https://webstack.nl/tag/aws/"/>
-    
-      <category term="Azure" scheme="https://webstack.nl/tag/azure/"/>
-    
-      <category term="Google App Engine" scheme="https://webstack.nl/tag/google-app-engine/"/>
-    
-      <category term="Heroku" scheme="https://webstack.nl/tag/heroku/"/>
-    
-      <category term="Microsoft" scheme="https://webstack.nl/tag/microsoft/"/>
-    
-      <category term="OpenShift" scheme="https://webstack.nl/tag/openshift/"/>
-    
-      <category term="PaaS" scheme="https://webstack.nl/tag/paas/"/>
-    
-      <category term="Pagoda Box" scheme="https://webstack.nl/tag/pagoda-box/"/>
-    
-      <category term="Platform-As-A-Service" scheme="https://webstack.nl/tag/platform-as-a-service/"/>
-    
-      <category term="Cloud" scheme="https://webstack.nl/category/cloud/"/>
-    
-      <category term="Platform-As-A-Service" scheme="https://webstack.nl/category/cloud/platform-as-a-service/"/>
     
   </entry>
   
