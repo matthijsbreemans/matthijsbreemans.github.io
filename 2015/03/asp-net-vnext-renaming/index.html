@@ -2,18 +2,18 @@
 <html>
 <head>
   
-  <title>Tag: debian | Webstack</title>
+  <title>ASP.NET vNext, renamen en de introductie van DNX! | Webstack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta charset="UTF-8">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Webstack">
-<meta property="og:url" content="https://webstack.nl/tag/debian/">
+  <meta name="description" content="Het speelde al een tijdje bij de ontwikkeling van ASP.NET vNext maar tijdens een van de laatste Community Stand Up’s is er besloten dat de bekende vNext commando’s zoals k en kpm hernoemd worden om ee">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASP.NET vNext, renamen en de introductie van DNX!">
+<meta property="og:url" content="https://webstack.nl/2015/03/asp-net-vnext-renaming/">
 <meta property="og:site_name" content="Webstack">
-<meta property="og:description">
+<meta property="og:description" content="Het speelde al een tijdje bij de ontwikkeling van ASP.NET vNext maar tijdens een van de laatste Community Stand Up’s is er besloten dat de bekende vNext commando’s zoals k en kpm hernoemd worden om ee">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Webstack">
-<meta name="twitter:description">
+<meta name="twitter:title" content="ASP.NET vNext, renamen en de introductie van DNX!">
+<meta name="twitter:description" content="Het speelde al een tijdje bij de ontwikkeling van ASP.NET vNext maar tijdens een van de laatste Community Stand Up’s is er besloten dat de bekende vNext commando’s zoals k en kpm hernoemd worden om ee">
 <meta name="twitter:creator" content="@webstack_nl">
 
   
@@ -59,12 +59,10 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-asp-net-vnext-draaien-onder-linux-debian" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-asp-net-vnext-renaming" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/08/asp-net-vnext-draaien-onder-linux-debian/" class="article-date">
-  <time datetime="2014-08-26T08:57:54.000Z" itemprop="datePublished">aug. 26 2014</time>
+    <a href="/2015/03/asp-net-vnext-renaming/" class="article-date">
+  <time datetime="2015-03-20T16:31:13.000Z" itemprop="datePublished">mrt. 20 2015</time>
 </a>
     
   <div class="article-category">
@@ -78,8 +76,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/asp-net-vnext-draaien-onder-linux-debian/">ASP.NET vNext draaien onder Linux / Debian</a>
+    <h1 class="article-title" itemprop="name">
+      ASP.NET vNext, renamen en de introductie van DNX!
     </h1>
   
 
@@ -87,31 +85,43 @@
     
     <div class="article-entry" itemprop="articleBody">
         
-        <p><a href="https://webstack.nl/2014/08/asp-net-vnext-wat-is-het-en-wat-doet-het/" target="_blank" rel="external">Eerder</a> heb ik al een uitleg gegeven over wat ASP.NET vNext precies is. Nu beloofd Microsoft goede cross platform compatibiliteit, met Windows, Linux en OS X en was ik benieuwd hoe goed dit nu eigenlijk werkt op Linux. Ik heb hiervoor een Debian Wheezy installatie gebruikt welke ik heb geupgrade naar Debian Sid, of tewel Debian testing.</p>
-<p>
-        
-          <p class="article-more-link">
-            <a href="/2014/08/asp-net-vnext-draaien-onder-linux-debian/">Lees verder</a>
-          </p>
-        
+        <p>Het speelde al een tijdje bij de ontwikkeling van ASP.NET vNext maar tijdens <a href="https://www.youtube.com/watch?v=-qt0POsiAF8&amp;list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&amp;index=1" target="_blank" rel="external">een van de laatste Community Stand Up’s</a> is er besloten dat de bekende vNext commando’s zoals k en kpm hernoemd worden om eenduidigere en unieke commando’s te gebruiken</p>
+<h3 id="dnvm">dnvm</h3>
+<p>dnvm is de vervanger van KVM. Als je net ASP.NET vNext hebt geinstalleerd begin je met dnvm. dnvm zorgt ervoor dat er een runtime versie geinstalleerd wordt en hiermee kan je ook de verschillende runtimes (mocht je die hebben) managen. Ook is het mogelijk om naar een andere versie switchen. Zie <a href="https://github.com/aspnet/Home/wiki/version-manager" target="_blank" rel="external">https://github.com/aspnet/Home/wiki/version-manager</a> voor meer info.</p>
+<h3 id="nuget">nuget</h3>
+<p>Het nuget commando is het oude KPM (K Package Manager)  NuGet is verantwoordelijk voor het restoren en installeren van de Packages uit de NuGet repositories. Alles wat met de packages te maken heeft gebeurd via nuget.Zie <a href="https://github.com/aspnet/Home/wiki/Package-Manager" target="_blank" rel="external">https://github.com/aspnet/Home/wiki/Package-Manager</a> voor meer informatie</p>
+<h3 id="dnx_(dot_Net_X?)">dnx (dot Net X?)</h3>
+<p>DNX is de vervanger van K. Als je een vNext applicatie wilt draaien gebruik je dnx run. Voor meer informatie zie <a href="https://github.com/aspnet/Home/wiki/Command-Line" target="_blank" rel="external">https://github.com/aspnet/Home/wiki/Command-Line</a> . Eventueel kan er in het project.json bestand nog andere startup commando’s worden opgegeven. Ook vervangt dnx het oude KRE commando omdat de CLR en CLR bootstrappers nu als een NuGet package aangeboden worden.</p>
+<a id="more"></a>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-qt0POsiAF8?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF" frameborder="0" allowfullscreen></iframe>
       
     </div>
                 
     <footer class="article-footer">
-      <a data-url="https://webstack.nl/2014/08/asp-net-vnext-draaien-onder-linux-debian/" data-id="2ujjqxks2bpsdr23" class="article-share-link">Share</a>
+      <a data-url="https://webstack.nl/2015/03/asp-net-vnext-renaming/" data-id="em9oajs1nt3ceji5" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/-net/">.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/asp-net/">ASP.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/c/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/debian/">debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vnext/">vNext</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/-net/">.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/asp-net/">ASP.NET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/c/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/microsoft/">Microsoft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vnext/">vNext</a></li></ul>
 
     </footer>
 
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/03/dotnetconf-2015/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">dotNetConf 2015 komt er aan</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
-
-  
-  
 </section>
         
           <aside id="sidebar">
